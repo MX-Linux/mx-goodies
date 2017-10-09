@@ -2,3 +2,4 @@ bin/* 			usr/local/bin
 fstrim-mx       	etc/cron.weekly      
 Jar-Loader.desktop	usr/share/applications
 Py-Loader.desktop 	usr/share/applications
+99-mx_allow_non_root_dmesg.conf	etc/sysctl.d

@@ -1,3 +1,9 @@
+mx-goodies (0.2.0) mx; urgency=medium
+
+  * added /etc/sysctl.d/99-mx_allow_non_root_dmesg.conf
+
+ -- dolphinoracle <dolphinoracle@gmail.com>  Mon, 09 Oct 2017 18:40:59 +0300
+
 mx-goodies (0.1.5) mx; urgency=medium
 
   * Added java.desktop and Py-Loader.desktop
