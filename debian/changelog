@@ -1,3 +1,15 @@
+mx-goodies (0.2.2) mx; urgency=medium
+
+  * adding clipboard to quick-system-info tool 
+
+ -- dolphinoracle <dolphinoracle@gmail.com>  Fri, 29 Dec 2017 20:36:23 -0500
+
+mx-goodies (0.2.1) mx; urgency=medium
+
+  * added Quick inxi desktop file 
+
+ -- dolphinoracle <dolphinoracle@gmail.com>  Mon, 04 Dec 2017 18:35:45 -0500
+
 mx-goodies (0.2.0) mx; urgency=medium
 
   * added /etc/sysctl.d/99-mx_allow_non_root_dmesg.conf

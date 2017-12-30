@@ -1,0 +1,27 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Quick System Info
+Name[ca]=Informació ràpida del sistema
+Name[cs]=Rychlé informace o systému
+Name[de]=Schnelle Systeminfo
+Name[el]=Γρήγορες πληροφορίες συστήματος
+Name[es]=Información rápida del sistema
+Name[fr]=Informations système rapides
+Name[it]=Informazioni di sistema rapide
+Name[ja]=クイックシステム情報
+Name[nl]=Snelle systeeminformatie
+Name[pl]=Szybka informacja o systemie
+Name[pt]=Informação rápida do sistema
+Name[ro]=Informații sistem rapide
+Name[ru]=Быстрая информация о системе
+Name[sv]=Snabbsysteminfo
+Comment=inxi -F
+Exec=x-terminal-emulator -e bash -c "/usr/bin/quick-system-info-mx"
+Icon=computer
+Path=
+Terminal=false
+StartupNotify=false
+Type=Application
+Categories=System;MX-Utilities
+Name[en_US.UTF-8]=Quick System Info

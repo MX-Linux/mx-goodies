@@ -8,7 +8,7 @@ Homepage: http://antix.mepis.org
 
 Package: mx-goodies
 Architecture: all
-Depends: perl 
+Depends: perl, xsel
 Conflicts: antix-goodies, antix-goodies-core 
 Replaces: antix-goodies, antix-goodies-core 
 Description: Various useful scripts for MX.

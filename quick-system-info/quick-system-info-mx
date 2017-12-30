@@ -1,0 +1,51 @@
+#!/bin/bash
+
+##/local/bin/quick-system-info-mx
+##wrapper script for inxi to do quick "inxi -F" and copy report to clipboard
+##part of mx-goodies package
+
+#requires xsel package
+
+##locale stuff
+
+TEXTDOMAINDIR=/usr/share/locale 
+export TEXTDOMAIN="quick-system-info"
+
+#setup
+
+main(){
+
+    #check for existing of inxi
+
+    test -e "$(which inxi)" || quit_error $"Required inxi app not found"
+
+    run_report
+
+    quit
+
+}
+
+run_report(){
+
+    bash -c 'inxi -F -c 0 |xsel -ib &' 
+    echo
+    bash -c 'inxi -F'
+    echo
+    echo $"Report copied to system clipboard"
+
+}
+
+quit(){
+    echo
+    read -n 1 -s -r -p $"Press any key to close"
+    exit 0
+}
+
+quit_error(){
+    local msg
+    msg=$1
+    echo "$msg"
+    exit 1
+}
+
+main "$@"
