@@ -1,3 +1,10 @@
+mx-goodies (0.2.3) mx; urgency=medium
+
+  * translations 
+  * brightness-init added
+
+ -- dolphinoracle <dolphinoracle@gmail.com>  Sun, 07 Jan 2018 21:44:28 -0500
+
 mx-goodies (0.2.2) mx; urgency=medium
 
   * adding clipboard to quick-system-info tool 

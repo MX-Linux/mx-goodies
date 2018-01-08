@@ -1,0 +1,79 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          brightness-init
+# Required-Start:
+# Required-Stop:
+# Should-Start:
+# Default-Start:     3 4 5
+# Default-Stop:      0 1 6
+# Short-Description:
+# Description:       save/restore backlight settings on installed systems
+### END INIT INFO
+
+BRIGHTNESS_SETTINGS_CACHE="/var/cache/brightness-settings-cache"
+
+main() {
+
+    #test for live system, exit if found
+    local LIVE_CHECK=$(df -T / |tail -n1 |awk '{print $2}')
+    if [ "$LIVE_CHECK" = "overlay" ] || [ "$LIVE_CHECK" = "aufs" ]; then
+        exit 0
+    fi
+    
+    #create cache location if necessary
+    
+    test -e $BRIGHTNESS_SETTINGS_CACHE || mkdir -p "$BRIGHTNESS_SETTINGS_CACHE"
+    
+    case $1 in
+    
+        start) restore_brightness ;;
+
+         stop) save_brightness     ;;
+
+            *) echo "Usage: $0 {start|stop}" ;;
+
+    esac
+
+    exit 0
+}
+
+restore_brightness(){
+
+    #find list of backlight files to restore
+    
+    local file
+    
+    while read file; do
+    
+        [ ${#file} -gt 0 ] || continue
+        
+        test -e "${file#$BRIGHTNESS_SETTINGS_CACHE}" && cp "$file" "${file#$BRIGHTNESS_SETTINGS_CACHE}" 
+        
+    done<<restore_files
+$(eval "ls $BRIGHTNESS_SETTINGS_CACHE/sys/class/backlight/*/brightness" 2>/dev/null)
+restore_files
+
+exit 0
+}
+
+save_brightness(){
+    
+    #save existing brightness files 
+    
+    local file
+    
+    while read file; do
+    
+        [ ${#file} -gt 0 ] || continue
+        
+        cp --parents "$file" "$BRIGHTNESS_SETTINGS_CACHE"
+        
+    done<<save_files
+$(eval "ls /sys/class/backlight/*/brightness" 2>/dev/null)
+save_files
+
+exit 0
+    
+}
+main "$@"

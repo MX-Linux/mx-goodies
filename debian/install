@@ -5,3 +5,12 @@ Py-Loader.desktop 	usr/share/applications
 99-mx_allow_non_root_dmesg.conf	etc/sysctl.d
 quick-system-info/Quick_System_Info.desktop usr/share/applications
 quick-system-info/quick-system-info-mx usr/bin
+brightness-init usr/share/mx-system
+translations_script/ca/mx-goodies.mo     /usr/share/locale/ca/LC_MESSAGES
+translations_script/de/mx-goodies.mo     /usr/share/locale/de/LC_MESSAGES
+translations_script/el/mx-goodies.mo     /usr/share/locale/el/LC_MESSAGES
+translations_script/fr/mx-goodies.mo     /usr/share/locale/fr/LC_MESSAGES
+translations_script/nl/mx-goodies.mo     /usr/share/locale/nl/LC_MESSAGES
+translations_script/pt/mx-goodies.mo     /usr/share/locale/pt/LC_MESSAGES
+translations_script/sv/mx-goodies.mo     /usr/share/locale/sv/LC_MESSAGES
+translations_script/tr/mx-goodies.mo     /usr/share/locale/tr/LC_MESSAGES

@@ -8,8 +8,8 @@
 
 ##locale stuff
 
-TEXTDOMAINDIR=/usr/share/locale 
-export TEXTDOMAIN="quick-system-info"
+TEXTDOMAINDIR=/usr/share/locale/ 
+export TEXTDOMAIN="mx-goodies"
 
 #setup
 
