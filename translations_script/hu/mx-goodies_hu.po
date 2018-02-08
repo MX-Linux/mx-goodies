@@ -10,22 +10,21 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-30 21:57-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: delix02, 2017\n"
-"Language-Team: German (https://www.transifex.com/anticapitalista/teams/10162/de/)\n"
+"Language-Team: Hungarian (https://www.transifex.com/anticapitalista/teams/10162/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: quick-system-info-mx:20
 msgid "Required inxi app not found"
-msgstr "Das erforderliche Programm inxi konnte nicht gefunden werden"
+msgstr ""
 
 #: quick-system-info-mx:34
 msgid "Report copied to system clipboard"
-msgstr "Der Bericht wurde in die Zwischenablage des Systems kopiert"
+msgstr ""
 
 #: quick-system-info-mx:40
 msgid "Press any key to close"
-msgstr "Schließen mit beliebiger Taste"
+msgstr ""
