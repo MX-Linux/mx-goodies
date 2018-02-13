@@ -1,3 +1,16 @@
+mx-goodies (0.2.5) mx; urgency=medium
+
+  * updated translations 
+
+ -- dolphinoracle <dolphin@littlebyte>  Tue, 13 Feb 2018 18:49:42 -0500
+
+mx-goodies (0.2.4) mx; urgency=medium
+
+  * add brightness-settings-cache to excludes lists (mx-snapshot and live-remaster-exclude)
+  * those changes will be overridden by changes to mx-snapshot and antix-libs
+
+ -- dolphinoracle <dolphinoracle@gmail.com>  Wed, 10 Jan 2018 21:07:33 -0500
+ 
 mx-goodies (0.2.3) mx; urgency=medium
 
   * translations 
