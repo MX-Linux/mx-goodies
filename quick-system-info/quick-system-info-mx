@@ -27,9 +27,9 @@ main(){
 
 run_report(){
 
-    bash -c 'inxi -F -c 0 |xsel -ib &' 
+    bash -c 'inxi -Fr -c 0 |xsel -ib 2>/dev/null &'  
     echo
-    bash -c 'inxi -F'
+    bash -c 'inxi -F 2>/dev/null'
     echo
     echo $"Report copied to system clipboard"
 
