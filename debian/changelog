@@ -1,3 +1,10 @@
+mx-goodies (0.3.3) mx; urgency=medium
+
+  * updated locales 
+  * added repositories to quick-system-info
+
+ -- dolphinoracle <dolphinoracle@gmail.com>  Mon, 25 Jun 2018 21:15:09 -0400
+
 mx-goodies (0.3.1) mx; urgency=medium
 
   * trying to squash some output errors in new inxi 
