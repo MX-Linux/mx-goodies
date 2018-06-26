@@ -13,6 +13,9 @@ translations_script/de/mx-goodies.mo     /usr/share/locale/de/LC_MESSAGES
 translations_script/el/mx-goodies.mo     /usr/share/locale/el/LC_MESSAGES
 translations_script/es/mx-goodies.mo     /usr/share/locale/es/LC_MESSAGES
 translations_script/fr/mx-goodies.mo     /usr/share/locale/fr/LC_MESSAGES
+translations_script/fi/mx-goodies.mo     /usr/share/locale/fi/LC_MESSAGES
+translations_script/hi/mx-goodies.mo     /usr/share/locale/hi/LC_MESSAGES
+translations_script/hr/mx-goodies.mo     /usr/share/locale/hr/LC_MESSAGES
 translations_script/hu/mx-goodies.mo     /usr/share/locale/hu/LC_MESSAGES
 translations_script/it/mx-goodies.mo     /usr/share/locale/it/LC_MESSAGES
 translations_script/ja/mx-goodies.mo     /usr/share/locale/ja/LC_MESSAGES
@@ -28,3 +31,4 @@ translations_script/sk/mx-goodies.mo     /usr/share/locale/sk/LC_MESSAGES
 translations_script/sv/mx-goodies.mo     /usr/share/locale/sv/LC_MESSAGES
 translations_script/tr/mx-goodies.mo     /usr/share/locale/tr/LC_MESSAGES
 translations_script/uk/mx-goodies.mo     /usr/share/locale/uk/LC_MESSAGES
+translations_script/zh_TW/mx-goodies.mo     /usr/share/locale/zh_TW/LC_MESSAGES
