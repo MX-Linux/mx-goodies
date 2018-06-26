@@ -6,7 +6,7 @@ Py-Loader.desktop 	usr/share/applications
 quick-system-info/Quick_System_Info.desktop usr/share/applications
 quick-system-info/quick-system-info-mx usr/bin
 brightness-init usr/share/mx-system
-translations_script/mo/mo/am/mx-goodies.mo     /usr/share/locale/am/LC_MESSAGES
+translations_script/mo/am/mx-goodies.mo     /usr/share/locale/am/LC_MESSAGES
 translations_script/mo/ca/mx-goodies.mo     /usr/share/locale/ca/LC_MESSAGES
 translations_script/mo/cs/mx-goodies.mo     /usr/share/locale/cs/LC_MESSAGES
 translations_script/mo/de/mx-goodies.mo     /usr/share/locale/de/LC_MESSAGES
