@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# mx-system-locales
+#
+# Configure system locales
+
+# check root
+if test "$(id -u)" != 0; then
+  printf "$(gettext su-to-root 'This command needs %s privileges to be executed.\n')" root
+  exit 1
+fi
+
+case $XDG_CURRENT_DESKTOP in
+  KDE)  FRONTEND=kde;;
+  *)    FRONTEND=gnome;;
+esac
+
+dpkg-reconfigure -f$FRONTEND locales 2>&1 | ( \
+   read; echo "$REPLY" ; echo "$REPLY" ; cat - ) | ( read; \
+   yad \
+   --title="Configure locales" \
+   --list \
+   --column=locales \
+   --width=600 \
+   --height=400 \
+   --button="gtk-close:1" \
+   --window-icon=preferences-desktop-locale \
+   --on-top \
+   --no-headers \
+   --no-click \
+   )
+
+exit

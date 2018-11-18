@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=System Keyboard
+Comment=Configure System Keyboard
+Exec=su-to-root -X -c 'dpkg-reconfigure -fgnome keyboard-configuration'
+Type=Application
+Icon=preferences-desktop-keyboard
+Path=
+Terminal=true
+NoDisplay=false
+OnlyShowIn=XFCE;
+StartupNotify=false
+Categories=XFCE;GTK;Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-HardwareSettings;MX-Setup;
