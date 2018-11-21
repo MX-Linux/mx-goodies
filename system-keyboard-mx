@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# system-locales-mx
+# system-keyboard-mx
 #
-# Configure system locales
+# Configure system keyboard
 
 # check root
 #
@@ -18,30 +18,13 @@ esac
 
 # window defaults
 #
- TITLE="Configure system locales"
-  ICON=preferences-desktop-locale
+ TITLE="System Keyboard Configuration"
+  ICON=notification-keyboard-brightness
  WIDTH=900
-HEIGHT=500
-
-# current screen height
-#
-H=$(xrandr | sed -n -E '/^Screen.*current/{ s/.*current\s[0-9]+\sx\s([0-9]+).*/\1/p;}')
-if [ -n $H ]  && [ $H -ge 700 ]; then
-   # set to 70% of screen hight
-   HEIGHT=$(( $H * 7 / 10 ))
-fi
+HEIGHT=400
 
 # locale info's
 #
-lang_title () {
-   local LANG=$1
-   local title
-   LANG=${LANG%.UTF-8}
-   LANG=${LANG%.ISO-8859-1}
-   title=$( grep -A2 ^LC_IDENTIFICATION /usr/share/i18n/locales/${LANG} 2>/dev/null | \
-            sed -n -E '/^title/{s/^title\s+\"([^"]*)\"/\1/p;q}' 2>/dev/null )
-   echo "$title"
-}
 sys_lang() {
    local sys_lang
    sys_lang="$(grep -o -E '^LANG=[^#[:space:]]+'  /etc/default/locale 2>/dev/null |  tail -1 2>/dev/null)"
@@ -65,9 +48,9 @@ elif LANG=C locale -a | sed s/utf8/UTF-8/ | grep -q "C.UTF-8"; then
    PROC_LANG="C.UTF-8"
 fi
 
-# configure system locales
+# configure system keyboard
 #
-( env LANG="$PROC_LANG" dpkg-reconfigure -f$FRONTEND locales 2>&1 
+( env LANG="$PROC_LANG" dpkg-reconfigure -f$FRONTEND keyboard-configuration 2>/dev/null
    RET=$?
    if [ $RET != 0 ]; then
        echo " "
@@ -75,27 +58,18 @@ fi
        echo " "
        exit $RET
    else  
-       echo "System locale:"
-       SYS_LANG="$(sys_lang)"
-       LANG_TITLE="$(lang_title $SYS_LANG)"
-       echo "$SYS_LANG - $LANG_TITLE"
+       echo " "
+       echo "System keyboard configuration:"
+      sed -n -E '/^XKB/{s/^XKB//;p;}' 2>/dev/null /etc/default/keyboard
    fi
    ) | ( \
-   
+
    read LINE
    # capture debconf "sh: printf: I/O error" after cancel
    [  "${LINE% }" = "sh: printf: I/O error" ] && LINE=""  
    echo "$LINE" ; echo "$LINE" ; 
 
-   while read LINE; do 
-	   if [ -n "$LINE" ] && [ -z "${LINE##*... done}" ]; then
-         GEN_LANG="${LINE%... done}"
-         LANG_TITLE="$(lang_title $GEN_LANG)"
-         echo "$LINE - $LANG_TITLE"
-	   else
-		   echo "$LINE"
-	   fi 
-   done 
+   cat - 
    ) | ( read; \
    yad \
       --text-info \

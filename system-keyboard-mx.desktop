@@ -2,9 +2,9 @@
 Encoding=UTF-8
 Name=System Keyboard
 Comment=Configure System Keyboard
-Exec=su-to-root -X -c 'dpkg-reconfigure -fgnome keyboard-configuration'
+Exec=su-to-root -X -c system-keyboard-mx
 Type=Application
-Icon=preferences-desktop-keyboard
+Icon=notification-keyboard-brightness
 Path=
 Terminal=true
 NoDisplay=false

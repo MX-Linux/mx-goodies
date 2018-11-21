@@ -62,7 +62,6 @@ Comment[ta]=கணினி சூழலுக்கு முன்னிரு
 Comment[tr]=Sistem ortamında kullanılacak öntanımlı yerel
 Comment[vi]=Miền địa phương mặc định cho môi trường hệ thống
 Comment[zh_cn]=哪个将作为系统环境默认的区域设置(locale)？
-#Exec=su-to-root -X -c 'dpkg-reconfigure -fgnome locales'
 Exec=su-to-root -X -c system-locales-mx
 Type=Application
 Icon=preferences-desktop-locale
