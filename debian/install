@@ -7,6 +7,7 @@ quick-system-info/Quick_System_Info.desktop usr/share/applications
 quick-system-info/quick-system-info-mx usr/bin
 brightness-init usr/share/mx-system
 system-locales-mx	usr/bin
+system-keyboard-mx  usr/bin
 system-keyboard-mx.desktop usr/share/applications
 system-locales-mx.desktop usr/share/applications
 translations_script/mo/am/mx-goodies.mo     /usr/share/locale/am/LC_MESSAGES
