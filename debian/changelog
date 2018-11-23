@@ -1,3 +1,9 @@
+mx-goodies (18.11.03) mx; urgency=medium
+
+  * modifed desktop entry for system-keyboard-mx (fehlix) 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Thu, 22 Nov 2018 20:54:24 -0500
+
 mx-goodies (18.11.02) mx; urgency=medium
 
   * revised keyboard and locales routines 
