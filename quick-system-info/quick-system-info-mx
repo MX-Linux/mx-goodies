@@ -17,7 +17,7 @@ main(){
 
     #check for existing of inxi
 
-    test -e "$(which inxi)" || quit_error $"Required inxi app not found"
+    command -v inxi  >/dev/null  2>/dev/null || quit_error $"Required inxi app not found"
 
     run_report
 
@@ -27,9 +27,9 @@ main(){
 
 run_report(){
 
-    bash -c 'inxi -Fr -c 0 |xsel -ib 2>/dev/null &'  
+    bash -c '( echo "[code]"; inxi -Fxrz  -c0 ; echo "[/code]" 2>/dev/null ) | xsel -ib 2>/dev/null &'
     echo
-    bash -c 'inxi -Fr 2>/dev/null'
+    bash -c 'inxi -Fxrz 2>/dev/null'
     echo
     echo $"Report copied to system clipboard"
 
