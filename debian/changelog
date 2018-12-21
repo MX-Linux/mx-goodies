@@ -1,3 +1,9 @@
+mx-goodies (18.12.01) mx; urgency=medium
+
+  * update icon 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Fri, 21 Dec 2018 16:59:38 -0500
+
 mx-goodies (18.11.06) mx; urgency=medium
 
   * added xfce4-notifyd startup fix 
