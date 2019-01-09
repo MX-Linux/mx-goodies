@@ -4,10 +4,23 @@
 #
 # Configure system keyboard
 
+export TEXTDOMAINDIR=/usr/share/locale/ 
+export TEXTDOMAIN="mx-goodies"
+#
+# some msg-strings to be translated
+#
+CANCELED="$(gettext 'canceled')"
+   TITLE="$(gettext 'System Keyboard Configuration')"
+
+# some msg-strings we have translations already
+#
+CHKROOT="gettext su-to-root 'This command needs %s privileges to be executed.\n'"
+CHKROOT="$(eval $CHKROOT)"
+
 # check root
 #
 if test "$(id -u)" != 0; then
-  printf "$(gettext su-to-root 'This command needs %s privileges to be executed.\n')" root
+  printf "$CHKROOT" root
   exit 1
 fi
 
@@ -18,7 +31,6 @@ esac
 
 # window defaults
 #
- TITLE="System Keyboard Configuration"
   ICON=notification-keyboard-brightness
  WIDTH=900
 HEIGHT=400
@@ -54,12 +66,12 @@ fi
    RET=$?
    if [ $RET != 0 ]; then
        echo " "
-       echo '"'"$TITLE"'"'" canceled: exit [$RET]"
+       echo '"'"$TITLE"'"'" ${CANCELED}: exit [$RET]"
        echo " "
        exit $RET
    else  
        echo " "
-       echo "System keyboard configuration:"
+       echo "${TITLE}:"
       sed -n -E '/^XKB/{s/^XKB//;p;}' 2>/dev/null /etc/default/keyboard
    fi
    ) | ( \

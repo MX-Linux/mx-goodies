@@ -3,11 +3,26 @@
 # system-locales-mx
 #
 # Configure system locales
+# some msg-strings to be translated
+#
+export TEXTDOMAINDIR=/usr/share/locale/ 
+export TEXTDOMAIN="mx-goodies"
+#
+# some msg-strings to be translated
+#
+ CANCELED="$(gettext 'canceled')"
+    TITLE="$(gettext 'Configure System Locales')"
+SYSLOCALE="$(gettext 'System locale')"
+
+# some msg-strings we have translations already
+#
+CHKROOT="gettext su-to-root 'This command needs %s privileges to be executed.\n'"
+CHKROOT="$(eval $CHKROOT)"
 
 # check root
 #
 if test "$(id -u)" != 0; then
-  printf "$(gettext su-to-root 'This command needs %s privileges to be executed.\n')" root
+  printf "$CHKROOT" root
   exit 1
 fi
 
@@ -18,7 +33,6 @@ esac
 
 # window defaults
 #
- TITLE="Configure system locales"
   ICON=preferences-desktop-locale
  WIDTH=900
 HEIGHT=500
@@ -71,11 +85,11 @@ fi
    RET=$?
    if [ $RET != 0 ]; then
        echo " "
-       echo '"'"$TITLE"'"'" canceled: exit [$RET]"
+       echo '"'"$TITLE"'"'" ${CANCELED}: exit [$RET]"
        echo " "
        exit $RET
    else  
-       echo "System locale:"
+       echo "${SYSLOCALE}:"
        SYS_LANG="$(sys_lang)"
        LANG_TITLE="$(lang_title $SYS_LANG)"
        echo "$SYS_LANG - $LANG_TITLE"
