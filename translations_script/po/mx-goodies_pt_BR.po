@@ -3,13 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# cmenemrs <cmenemrs@gmail.com>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-30 21:57-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2019-01-12 16:40-0500\n"
+"PO-Revision-Date: 2017-12-31 03:14+0000\n"
 "Last-Translator: cmenemrs <cmenemrs@gmail.com>, 2018\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/anticapitalista/teams/10162/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,14 +21,30 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: quick-system-info-mx:20
+#: quick-system-info/quick-system-info-mx:20
 msgid "Required inxi app not found"
 msgstr "Aplicativo inxi necessário, não encontrado"
 
-#: quick-system-info-mx:34
+#: quick-system-info/quick-system-info-mx:34
 msgid "Report copied to system clipboard"
 msgstr "Relatório copiado para a área de transferência do sistema"
 
-#: quick-system-info-mx:40
+#: quick-system-info/quick-system-info-mx:40
 msgid "Press any key to close"
 msgstr "Pressione qualquer tecla para fechar"
+
+#: system-keyboard-mx:12 system-locales-mx:13
+msgid "canceled"
+msgstr ""
+
+#: system-keyboard-mx:13
+msgid "System Keyboard Configuration"
+msgstr ""
+
+#: system-locales-mx:14
+msgid "Configure System Locales"
+msgstr ""
+
+#: system-locales-mx:15
+msgid "System locale"
+msgstr ""
