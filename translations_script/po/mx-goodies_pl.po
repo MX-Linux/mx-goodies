@@ -23,11 +23,11 @@ msgstr ""
 
 #: quick-system-info/quick-system-info-mx:20
 msgid "Required inxi app not found"
-msgstr ""
+msgstr "Nie znaleziono wymaganej aplikacji inxi"
 
 #: quick-system-info/quick-system-info-mx:34
 msgid "Report copied to system clipboard"
-msgstr ""
+msgstr "Raport został skopiowany do schowka systemowego"
 
 #: quick-system-info/quick-system-info-mx:40
 msgid "Press any key to close"
@@ -35,16 +35,16 @@ msgstr "Naciśnij dowolny klawisz, aby zamknąć"
 
 #: system-keyboard-mx:12 system-locales-mx:13
 msgid "canceled"
-msgstr ""
+msgstr "anulowany"
 
 #: system-keyboard-mx:13
 msgid "System Keyboard Configuration"
-msgstr ""
+msgstr "Konfiguracja klawiatury systemowej"
 
 #: system-locales-mx:14
 msgid "Configure System Locales"
-msgstr ""
+msgstr "Skonfiguruj ustawienia regionalne"
 
 #: system-locales-mx:15
 msgid "System locale"
-msgstr ""
+msgstr "Lokalizacja systemu"
