@@ -49,7 +49,7 @@ start() {
     echo "zram devices probed successfully"
     
     # initialize the devices
-    for i in $(seq 1 $last_cpu); do
+    for i in $(seq 0 $last_cpu); do
     echo $mem_by_cpu > /sys/block/zram$i/disksize
     # Creating swap filesystems
     mkswap /dev/zram$i

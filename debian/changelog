@@ -1,3 +1,9 @@
+mx-goodies (19.04.02) mx; urgency=medium
+
+  * update zram script per bug report 84 (bugs.mxlinux.org) 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Wed, 08 May 2019 20:11:26 -0400
+
 mx-goodies (19.04.01) mx; urgency=medium
 
   * translation bump 
