@@ -1,3 +1,10 @@
+mx-goodies (19.07.01) mx; urgency=medium
+
+  * update icons
+  * remove brightness-init since buster initscripts have one
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Mon, 08 Jul 2019 20:39:55 -0400
+
 mx-goodies (19.04.02) mx; urgency=medium
 
   * update zram script per bug report 84 (bugs.mxlinux.org) 
