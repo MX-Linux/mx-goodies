@@ -3,6 +3,7 @@
 ##/local/bin/quick-system-info-mx
 ##wrapper script for inxi to do quick "inxi -F" and copy report to clipboard
 ##part of mx-goodies package
+## changes to optimze inxi run
 
 #requires xsel package
 
@@ -17,7 +18,7 @@ main(){
 
     #check for existing of inxi
 
-    command -v inxi  >/dev/null  2>/dev/null || quit_error $"Required inxi app not found"
+    command -v inxi  >/dev/null || quit_error "$(gettext -d $TEXTDOMAIN  'Required inxi app not found')"
 
     run_report
 
@@ -27,17 +28,17 @@ main(){
 
 run_report(){
 
-    bash -c '( echo "[code]"; inxi -Fxrz  -c0 ; echo "[/code]" 2>/dev/null ) | xsel -ib 2>/dev/null &'
+	local color="$( ( echo VIRT_TERM_COLOR_SCHEME=2; grep -sh '^VIRT_TERM_COLOR_SCHEME=' /etc/inxi.conf ~/.config/inxi.conf) | sed 's/^VIRT_TERM_COLOR_SCHEME=//' | tail -1)"
     echo
-    bash -c 'inxi -Fxrz 2>/dev/null'
+    bash -c "inxi -Fxxxrza -c$color | tee >( ( echo '['code']'; sed -E 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g'; echo '[/'code']' ) | xsel -ib 2>/dev/null )"
     echo
-    echo $"Report copied to system clipboard"
+    echo "$(gettext -d $TEXTDOMAIN  'Report copied to system clipboard')"
 
 }
 
 quit(){
     echo
-    read -n 1 -s -r -p $"Press any key to close"
+    read -n 1 -s -r -p "$(gettext -d $TEXTDOMAIN  'Press any key to close') "
     exit 0
 }
 
