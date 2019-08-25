@@ -12,13 +12,17 @@
 TEXTDOMAINDIR=/usr/share/locale/ 
 export TEXTDOMAIN="mx-goodies"
 
+NOTFOUND="$(gettext 'Required inxi app not found')"
+COPIED="$(gettext 'Report copied to system clipboard')"
+PRESS="$(gettext 'Press any key to close')"
+
 #setup
 
 main(){
 
     #check for existing of inxi
 
-    command -v inxi  >/dev/null || quit_error "$(gettext -d $TEXTDOMAIN  'Required inxi app not found')"
+    command -v inxi  >/dev/null || quit_error "$NOTFOUND"
 
     run_report
 
@@ -32,13 +36,13 @@ run_report(){
     echo
     bash -c "inxi -Fxxxrza -c$color | tee >( ( echo '['code']'; sed -E 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g'; echo '[/'code']' ) | xsel -ib 2>/dev/null )"
     echo
-    echo "$(gettext -d $TEXTDOMAIN  'Report copied to system clipboard')"
+    echo "$COPIED"
 
 }
 
 quit(){
     echo
-    read -n 1 -s -r -p "$(gettext -d $TEXTDOMAIN  'Press any key to close') "
+    read -n 1 -s -r -p "$PRESS"
     exit 0
 }
 
