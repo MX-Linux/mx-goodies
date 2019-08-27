@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-12 16:40-0500\n"
+"POT-Creation-Date: 2019-08-25 17:12-0400\n"
 "PO-Revision-Date: 2017-12-31 03:14+0000\n"
 "Language-Team: Persian (https://www.transifex.com/anticapitalista/teams/10162/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Language: fa\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: quick-system-info/quick-system-info-mx:20
+#: quick-system-info/quick-system-info-mx:15
 msgid "Required inxi app not found"
 msgstr ""
 
-#: quick-system-info/quick-system-info-mx:34
+#: quick-system-info/quick-system-info-mx:16
 msgid "Report copied to system clipboard"
 msgstr ""
 
-#: quick-system-info/quick-system-info-mx:40
+#: quick-system-info/quick-system-info-mx:17
 msgid "Press any key to close"
 msgstr ""
 
