@@ -1,3 +1,9 @@
+mx-goodies (19.10.01) mx; urgency=medium
+
+  * modification to quick-system-info-mx to report certain live boot video settings
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Tue, 01 Oct 2019 20:33:17 -0400
+
 mx-goodies (19.09.01) mx; urgency=medium
 
   * translation refresh (old giza)
