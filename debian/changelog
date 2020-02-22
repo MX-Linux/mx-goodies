@@ -1,3 +1,9 @@
+mx-goodies (20.02.01) mx; urgency=medium
+
+  * system-locale-mx update (fehlix) 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Fri, 21 Feb 2020 20:22:50 -0500
+
 mx-goodies (19.10.01) mx; urgency=medium
 
   * modification to quick-system-info-mx to report certain live boot video settings

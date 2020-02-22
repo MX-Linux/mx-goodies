@@ -81,7 +81,7 @@ fi
 
 # configure system locales
 #
-( env LANG="$PROC_LANG" dpkg-reconfigure -f$FRONTEND locales 2>&1 
+( env LANG="$PROC_LANG" dpkg-reconfigure -f$FRONTEND locales 2>&1
    RET=$?
    if [ $RET != 0 ]; then
        echo " "
@@ -89,6 +89,7 @@ fi
        echo " "
        exit $RET
    else  
+       echo "--"
        echo "${SYSLOCALE}:"
        SYS_LANG="$(sys_lang)"
        LANG_TITLE="$(lang_title $SYS_LANG)"
@@ -96,17 +97,18 @@ fi
    fi
    ) | ( \
    
-   read LINE
-   # capture debconf "sh: printf: I/O error" after cancel
-   [  "${LINE% }" = "sh: printf: I/O error" ] && LINE=""  
-   echo "$LINE" ; echo "$LINE" ; 
-
+   i=0
    while read LINE; do 
+       [[ -z "$LINE" ]] && continue
+       [[ "$LINE" =~ 'dbind-WARNING' ]] && continue
+       [[ "$LINE" =~ 'I/O error'     ]] && continue
+       ((i++))
 	   if [ -n "$LINE" ] && [ -z "${LINE##*... done}" ]; then
          GEN_LANG="${LINE%... done}"
          LANG_TITLE="$(lang_title $GEN_LANG)"
          echo "$LINE - $LANG_TITLE"
 	   else
+		   [ $i = 1 ] && echo "$LINE"
 		   echo "$LINE"
 	   fi 
    done 
