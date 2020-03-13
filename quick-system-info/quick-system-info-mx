@@ -31,10 +31,15 @@ main(){
 }
 
 run_report(){
-
+	
+	
+	local snapshot_created=""
+	if [ -e "/etc/snapshot_created" ]; then
+		snapshot_created="Snaphot created on: "$(cat /etc/snapshot_created)
+	fi
 	local color="$( ( echo VIRT_TERM_COLOR_SCHEME=10; grep -sh '^VIRT_TERM_COLOR_SCHEME=' /etc/inxi.conf ~/.config/inxi.conf) | sed 's/^VIRT_TERM_COLOR_SCHEME=//' | tail -1)"
     echo
-    bash -c "( inxi -Fxxxrza -c$color; VT=/live/config/video-tweaks; [ -r \$VT ] && echo 'Video Tweaks:' && cat \$VT 2>/dev/null ) | tee >( ( echo '['code']'; sed -E 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g'; echo '[/'code']' ) | xsel -ib 2>/dev/null )"
+    bash -c "( echo $snapshot_created;inxi -Fxxxrza -c$color; VT=/live/config/video-tweaks; [ -r \$VT ] && echo 'Video Tweaks:' && cat \$VT 2>/dev/null ) | tee >( ( echo '['code']'; sed -E 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g'; echo '[/'code']' ) | xsel -ib 2>/dev/null )"
     echo
     echo "$COPIED"
 

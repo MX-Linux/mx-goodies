@@ -1,3 +1,9 @@
+mx-goodies (20.03.01) mx; urgency=medium
+
+  * update quick-system-info to show new snapshot_created date info 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Thu, 12 Mar 2020 20:46:40 -0400
+
 mx-goodies (20.02.01) mx; urgency=medium
 
   * system-locale-mx update (fehlix) 
