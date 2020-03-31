@@ -1,3 +1,9 @@
+mx-goodies (20.03.02) mx; urgency=medium
+
+  * update control file 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Mon, 30 Mar 2020 22:41:03 -0400
+
 mx-goodies (20.03.01) mx; urgency=medium
 
   * update quick-system-info to show new snapshot_created date info 
