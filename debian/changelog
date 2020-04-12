@@ -1,3 +1,9 @@
+mx-goodies (20.04.01) mx; urgency=medium
+
+  * add toggle-mx 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 12 Apr 2020 11:26:20 -0400
+
 mx-goodies (20.03.02) mx; urgency=medium
 
   * update control file 
