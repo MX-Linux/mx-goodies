@@ -1,6 +1,6 @@
 mx-goodies (20.07.08) mx; urgency=medium
 
-	[fehlix]
+  [ fehlix ]
   * replace xsel by xclip for quick-system-info
   * add primary X selection within quick-system-info
 
