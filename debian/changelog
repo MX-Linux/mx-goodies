@@ -1,9 +1,10 @@
 mx-goodies (20.07.08) mx; urgency=medium
 
+	[fehlix]
   * replace xsel by xclip for quick-system-info
   * add primary X selection within quick-system-info
 
- -- fehlix <fehlix@mxlinux.org>  Wed, 08 Jul 2020 18:28:12 +0200
+ -- dolphin oracle <dolphinoracle@gmail.com>  Wed, 08 Jul 2020 18:28:12 +0200
 
 mx-goodies (20.04.01) mx; urgency=medium
 
