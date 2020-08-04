@@ -1,3 +1,10 @@
+mx-goodies (20.08.04) mx; urgency=medium
+
+  [ fehlix ]
+  * add hostname filter
+
+ -- fehlix <fehlix@mxlinux.org>  Wed, 04 Aug 2020 21:32:30 +0200
+
 mx-goodies (20.07.08) mx; urgency=medium
 
   [ fehlix ]
