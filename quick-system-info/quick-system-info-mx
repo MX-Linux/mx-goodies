@@ -12,9 +12,9 @@
 TEXTDOMAINDIR=/usr/share/locale/ 
 export TEXTDOMAIN="mx-goodies"
 
-NOTFOUND="$(gettext 'Required inxi app not found')"
-COPIED="$(gettext 'Report copied to system clipboard')"
-PRESS="$(gettext 'Press any key to close')"
+NOTFND=$(gettext 'Required inxi app not found')
+COPIED=$(gettext 'Report copied to system clipboard')
+ANYKEY=$(gettext 'Press any key to close')
 
 #setup
 
@@ -22,7 +22,7 @@ main(){
 
     #check for existing of inxi
 
-    command -v inxi  >/dev/null || quit_error "$NOTFOUND"
+    command -v inxi  >/dev/null || quit_error "$NOTFND"
 
     run_report
 
@@ -31,24 +31,37 @@ main(){
 }
 
 run_report(){
-	
-	
-	local snapshot_created=""
-	if [ -e "/etc/snapshot_created" ]; then
-		snapshot_created="Snaphot created on: "$(cat /etc/snapshot_created)
-	fi
-	local color="$( ( echo VIRT_TERM_COLOR_SCHEME=10; grep -sh '^VIRT_TERM_COLOR_SCHEME=' /etc/inxi.conf ~/.config/inxi.conf) | sed 's/^VIRT_TERM_COLOR_SCHEME=//' | tail -1)"
-    echo
-    bash -c "( echo $snapshot_created;inxi -Fxxxrza -c$color; VT=/live/config/video-tweaks; [ -r \$VT ] && echo 'Video Tweaks:' && cat \$VT 2>/dev/null ) | tee >( ( echo '['code']'; sed -E 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g'; echo '[/'code']' ) | xclip -selection clipboard 2>/dev/null )"
-    echo
+
+    local snapshot_created=""
+    if [ -e "/etc/snapshot_created" ]; then
+        snapshot_created="Snaphot created on: "$(cat /etc/snapshot_created)
+    fi
+    local inxi_color="$(( echo VIRT_TERM_COLOR_SCHEME=10; 
+                          grep -sh '^VIRT_TERM_COLOR_SCHEME=' /etc/inxi.conf ~/.config/inxi.conf) | \
+                          sed 's/^VIRT_TERM_COLOR_SCHEME=//' | tail -1)"
+    local host_filter="^([^[:space:]]*System:.*Host:[^[:space:]]*[[:space:]])([[:alnum:]]+)([[:space:]].*)"
+    local video_tweaks=/live/config/video-tweaks 
+
+    ( [ -n "$snapshot_created" ] && echo $snapshot_created
+             inxi -Fxxxrza -c$inxi_color | \
+             sed -r "/$host_filter/s//\1<filter>\3/"
+             [ -r $video_tweaks ] && echo 'Video Tweaks:' && cat $video_tweaks 2>/dev/null
+             ) | \
+             tee >( 
+             ( echo "[code]"; 
+             sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g'; 
+             echo "[/code]" ) | \
+             xclip -selection clipboard 2>/dev/null )
+
     xclip -o -selection clipboard | xclip -i -selection primary
+    echo 
     echo "$COPIED"
 
 }
 
 quit(){
     echo
-    read -n 1 -s -r -p "$PRESS"
+    read -n 1 -s -r -p "$ANYKEY"
     exit 0
 }
 
