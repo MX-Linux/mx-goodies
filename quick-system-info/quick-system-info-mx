@@ -39,12 +39,13 @@ run_report(){
     local inxi_color="$(( echo VIRT_TERM_COLOR_SCHEME=10; 
                           grep -sh '^VIRT_TERM_COLOR_SCHEME=' /etc/inxi.conf ~/.config/inxi.conf) | \
                           sed 's/^VIRT_TERM_COLOR_SCHEME=//' | tail -1)"
-    local host_filter="^([^[:space:]]*System:.*Host:[^[:space:]]*[[:space:]])([[:alnum:]]+)([[:space:]].*)"
+    local ansi='\x1b\[[0-9;]+[mK]'
+    local host_filter="^(.+Host:(${ansi}|[[:space:]])+)([[:alnum:]]+)"
     local video_tweaks=/live/config/video-tweaks 
 
     ( [ -n "$snapshot_created" ] && echo $snapshot_created
              inxi -Fxxxrza -c$inxi_color | \
-             sed -r "/$host_filter/s//\1<filter>\3/"
+             sed -r "/Host:/{s/${host_filter}(.*)/\1<filter>\4/}"
              [ -r $video_tweaks ] && echo 'Video Tweaks:' && cat $video_tweaks 2>/dev/null
              ) | \
              tee >( 

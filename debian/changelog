@@ -1,3 +1,9 @@
+mx-goodies (20.08.12) mx; urgency=medium
+
+  * adjust hostname filter in quick-system-info
+
+ -- fehlix <fehlix@mxlinux.org>  Wed, 12 Aug 2020 18:51:58 +0200
+
 mx-goodies (20.08.04) mx; urgency=medium
 
   [ fehlix ]
