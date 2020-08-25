@@ -94,6 +94,5 @@ Icon=system-keyboard-mx
 Path=
 Terminal=false
 NoDisplay=false
-OnlyShowIn=XFCE;
 StartupNotify=false
 Categories=XFCE;GTK;Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-HardwareSettings;MX-Setup;
