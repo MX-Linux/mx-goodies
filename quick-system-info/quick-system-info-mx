@@ -9,7 +9,7 @@
 
 ##locale stuff
 
-TEXTDOMAINDIR=/usr/share/locale/ 
+TEXTDOMAINDIR=/usr/share/locale/
 export TEXTDOMAIN="mx-goodies"
 
 NOTFND=$(gettext 'Required inxi app not found')
@@ -36,26 +36,28 @@ run_report(){
     if [ -e "/etc/snapshot_created" ]; then
         snapshot_created="Snaphot created on: "$(cat /etc/snapshot_created)
     fi
-    local inxi_color="$(( echo VIRT_TERM_COLOR_SCHEME=10; 
+    local inxi_color="$(( echo VIRT_TERM_COLOR_SCHEME=10;
                           grep -sh '^VIRT_TERM_COLOR_SCHEME=' /etc/inxi.conf ~/.config/inxi.conf) | \
                           sed 's/^VIRT_TERM_COLOR_SCHEME=//' | tail -1)"
     local ansi='\x1b\[[0-9;]+[mK]'
-    local host_filter="^(.+Host:(${ansi}|[[:space:]])+)([[:alnum:]]+)"
-    local video_tweaks=/live/config/video-tweaks 
+    local host_filter="^(.+Host:(${ansi}|[[:space:]])+)([[:alnum:].-]+)"
+    local uuid_filter="[[:xdigit:]]{8}-([[:xdigit:]]{4}-){3}[[:xdigit:]]{12}"
+    local video_tweaks=/live/config/video-tweaks
 
     ( [ -n "$snapshot_created" ] && echo $snapshot_created
              inxi -Fxxxrza -c$inxi_color | \
-             sed -r "/Host:/{s/${host_filter}(.*)/\1<filter>\4/}"
+             sed -r -e "/Host:/{s/${host_filter}(.*)/\1<filter>\4/}" \
+                    -e "s/${uuid_filter}/<filter>/g"
              [ -r $video_tweaks ] && echo 'Video Tweaks:' && cat $video_tweaks 2>/dev/null
              ) | \
-             tee >( 
-             ( echo "[code]"; 
-             sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g'; 
+             tee >(
+             ( echo "[code]";
+             sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g';
              echo "[/code]" ) | \
              xclip -selection clipboard 2>/dev/null )
 
     xclip -o -selection clipboard | xclip -i -selection primary
-    echo 
+    echo
     echo "$COPIED"
 
 }

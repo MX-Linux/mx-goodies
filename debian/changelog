@@ -1,3 +1,11 @@
+mx-goodies (20.08.25) mx; urgency=medium
+
+  * adjust hostname filter in quick-system-info
+  * add uuid filter in quick-system-info
+  * show system-locales-mx and system-keyboard-mx not only in Xfce
+
+ -- fehlix <fehlix@mxlinux.org>  Tue, 25 Aug 2020 12:27:46 +0200
+
 mx-goodies (20.08.12) mx; urgency=medium
 
   * adjust hostname filter in quick-system-info
