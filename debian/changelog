@@ -1,3 +1,9 @@
+mx-goodies (20.10.01) mx; urgency=medium
+
+  * fixed a typo in quick-system-info of displayed snapshot creation date
+
+ -- fehlix <fehlix@mxlinux.org>  Thu, 08 Oct 2020 16:14:44 -0400
+
 mx-goodies (20.08.25) mx; urgency=medium
 
   * adjust hostname filter in quick-system-info
