@@ -105,8 +105,8 @@ fi
        ((i++))
 	   if [ -n "$LINE" ] && [ -z "${LINE##*... done}" ]; then
          GEN_LANG="${LINE%... done}"
-         LANG_TITLE="$(lang_title $GEN_LANG | sed -r 's/(<U)([[:xdigit:]]{4})>/\\u\2/g')"
-         printf "$LINE - $LANG_TITLE\n"
+         LANG_TITLE="$(lang_title $GEN_LANG)"
+         echo "$LINE - $LANG_TITLE"
 	   else
 		   [ $i = 1 ] && echo "$LINE"
 		   echo "$LINE"
