@@ -34,7 +34,7 @@ run_report(){
 
     local snapshot_created=""
     if [ -e "/etc/snapshot_created" ]; then
-        snapshot_created="Snaphot created on: "$(cat /etc/snapshot_created)
+        snapshot_created="Snapshot created on: "$(cat /etc/snapshot_created)
     fi
     local inxi_color="$(( echo VIRT_TERM_COLOR_SCHEME=10;
                           grep -sh '^VIRT_TERM_COLOR_SCHEME=' /etc/inxi.conf ~/.config/inxi.conf) | \
