@@ -18,6 +18,9 @@ SYSLOCALE="$(gettext 'System locale')"
 #
 CHKROOT="gettext su-to-root 'This command needs %s privileges to be executed.\n'"
 CHKROOT="$(eval $CHKROOT)"
+  CLOSE="gettext -d gtk30 'Close'"
+  CLOSE="$(eval $CLOSE)"
+
 
 # check root
 #
@@ -113,7 +116,7 @@ fi
 	   fi 
    done 
    ) | ( read; \
-   yad \
+   LANG=C.UTF-8 yad \
       --text-info \
       --title="$TITLE" \
       --window-icon=$ICON \
@@ -124,7 +127,7 @@ fi
       --center \
       --on-top \
       --tail \
-      --button="gtk-close:1"
+      --button="$CLOSE"'!gtk-close:1'
    )
 
 exit

@@ -1,3 +1,9 @@
+mx-goodies (20.10.02) mx; urgency=medium
+
+  * add utf8 fix within system-locale-mx
+
+ -- fehlix <fehlix@mxlinux.org>  Sun, 25 Oct 2020 21:37:41 -0400
+
 mx-goodies (20.10.01) mx; urgency=medium
 
   * fixed a typo in quick-system-info of displayed snapshot creation date
