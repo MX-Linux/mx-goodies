@@ -1,3 +1,9 @@
+mx-goodies (21.01.01) mx; urgency=medium
+
+  * remove yad script thing 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 17 Jan 2021 18:44:34 -0500
+
 mx-goodies (20.10.01) mx; urgency=medium
 
   * fixed a typo in quick-system-info of displayed snapshot creation date
