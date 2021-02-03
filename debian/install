@@ -9,8 +9,8 @@ quick-system-info/mx-qsi.png /usr/share/pixmaps
 xfce4-notifyd-start usr/bin
 xfce4-notifyd-start.desktop etc/xdg/autostart
 system-locales-mx	usr/bin
-system-keyboard-mx  usr/bin
-system-keyboard-mx.desktop usr/share/applications
+#system-keyboard-mx  usr/bin
+#system-keyboard-mx.desktop usr/share/applications
 system-keyboard-mx.svg usr/share/icons/hicolor/scalable/apps
 system-locales-mx.desktop usr/share/applications
 translations_script/mo/am/mx-goodies.mo     /usr/share/locale/am/LC_MESSAGES
