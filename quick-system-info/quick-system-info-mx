@@ -14,6 +14,8 @@ export TEXTDOMAIN="mx-goodies"
 
 NOTFND=$(gettext 'Required inxi app not found')
 COPIED=$(gettext 'Report copied to system clipboard')
+FORMATTED=$(gettext 'Report is already formatted for forum.')
+PASTE=$(gettext 'Paste directly into forum post.')
 ANYKEY=$(gettext 'Press any key to close')
 
 #setup
@@ -59,10 +61,26 @@ run_report(){
     xclip -o -selection clipboard | xclip -i -selection primary
     echo
     echo "$COPIED"
+    echo "$FORMATTED"
+    echo "$PASTE"
 
 }
 
+#quit(){
+    #echo
+    #read -n 1 -s -r -p "$ANYKEY"
+    #exit 0
+#}
 quit(){
+	
+if [ -e /usr/bin/yad ]; then
+	##begin message box
+	
+	yad --text="\n<b>$COPIED \n \n $FORMATTED \n \n $PASTE \n \n</b>" --title="Quick-system-info" --fixed --button=gtk-ok:0 --buttons-layout=center --width=350 --height=100 --window-icon=mx-qsi --text-align=center 
+	
+	##end message box
+fi
+
     echo
     read -n 1 -s -r -p "$ANYKEY"
     exit 0
