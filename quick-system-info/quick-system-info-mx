@@ -17,6 +17,7 @@ COPIED=$(gettext 'Report copied to system clipboard')
 FORMATTED=$(gettext 'Report is already formatted for forum.')
 PASTE=$(gettext 'Paste directly into forum post.')
 ANYKEY=$(gettext 'Press any key to close')
+DONOTSHOW=$(gettext 'Do not show this message in future')
 
 #setup
 
