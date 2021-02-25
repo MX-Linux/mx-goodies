@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-25 17:12-0400\n"
+"POT-Creation-Date: 2021-02-21 11:35-0600\n"
 "PO-Revision-Date: 2017-12-31 03:14+0000\n"
 "Language-Team: Kazakh (https://www.transifex.com/anticapitalista/teams/10162/kk/)\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kk\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: system-locales-mx:13 archive/system-keyboard-mx:12
+msgid "canceled"
+msgstr ""
+
+#: system-locales-mx:14
+msgid "Configure System Locales"
+msgstr ""
+
+#: system-locales-mx:15
+msgid "System locale"
+msgstr ""
 
 #: quick-system-info/quick-system-info-mx:15
 msgid "Required inxi app not found"
@@ -26,21 +38,21 @@ msgid "Report copied to system clipboard"
 msgstr ""
 
 #: quick-system-info/quick-system-info-mx:17
+msgid "Report is already formatted for forum."
+msgstr ""
+
+#: quick-system-info/quick-system-info-mx:18
+msgid "Paste directly into forum post."
+msgstr ""
+
+#: quick-system-info/quick-system-info-mx:19
 msgid "Press any key to close"
 msgstr ""
 
-#: system-keyboard-mx:12 system-locales-mx:13
-msgid "canceled"
+#: quick-system-info/quick-system-info-mx:20
+msgid "Do not show this message in future"
 msgstr ""
 
-#: system-keyboard-mx:13
+#: archive/system-keyboard-mx:13
 msgid "System Keyboard Configuration"
-msgstr ""
-
-#: system-locales-mx:14
-msgid "Configure System Locales"
-msgstr ""
-
-#: system-locales-mx:15
-msgid "System locale"
 msgstr ""
