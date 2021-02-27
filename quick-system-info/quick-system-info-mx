@@ -94,7 +94,7 @@ if [ -e /usr/bin/yad ]; then
     
 		selections=${selections##"|||||||"} 
 		selections=${selections%%"|"}
-		echo $selections
+		#echo $selections
     
 		if [ $selections = "TRUE" ]; then
 			if [ ! -d "$HOME/.config/MX-Linux/" ]; then
