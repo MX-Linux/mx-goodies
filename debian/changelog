@@ -1,3 +1,9 @@
+mx-goodies (21.02.02) mx; urgency=medium
+
+  * revise QSI text
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Fri, 26 Feb 2021 21:00:54 -0500
+
 mx-goodies (21.02.01) mx; urgency=medium
 
   * remove system-keyboard-mx 
