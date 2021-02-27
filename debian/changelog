@@ -1,3 +1,9 @@
+mx-goodies (21.02.03) mx; urgency=medium
+
+  * fix typo in qsi
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 27 Feb 2021 16:59:36 -0500
+
 mx-goodies (21.02.02) mx; urgency=medium
 
   * revise QSI text

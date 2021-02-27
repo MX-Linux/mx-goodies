@@ -111,7 +111,7 @@ fi
     read -n 1 -s -r -p "$ANYKEY"
     exit 0
 }
-}
+
 
 quit_error(){
     local msg
