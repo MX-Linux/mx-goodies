@@ -1,3 +1,9 @@
+mx-goodies (21.02.03+1mx21) mx; urgency=medium
+
+  * new xdg-user-dirs-update diversion 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Mon, 01 Mar 2021 18:33:46 -0500
+
 mx-goodies (21.02.03) mx; urgency=medium
 
   * fix typo in qsi
