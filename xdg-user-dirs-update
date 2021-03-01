@@ -1,9 +1,9 @@
 #!/bin/bash
 
 main(){
-#first pass the xdg-user-dirs-update command
+#first pass the real xdg-user-dirs-update command
 
-/usr/bin/xdg-user-dirs-update "$@"
+/usr/bin/xdg-user-dirs-update.real "$@"
 
 sleep 0.5
 
