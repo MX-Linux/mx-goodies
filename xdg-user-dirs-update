@@ -44,7 +44,7 @@ touch "$configfolder/$xdg_checkfile"
 copystuff(){
 if [ -d "$targetfolder" ]; then
 	for i in $1; do
-		if [ ! -e "$targetfolder/$1" ]; then
+		if [ ! -e "$targetfolder/$i" ]; then
 			if [ -e "/usr/share/applications/$i" ]; then
 				cp "/usr/share/applications/$i" "$targetfolder" 
 			fi
