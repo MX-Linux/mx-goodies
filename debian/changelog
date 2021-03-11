@@ -1,3 +1,9 @@
+mx-goodies (21.02.03+2mx21) mx; urgency=medium
+
+  * small fixes in qsi and system-locale-mx 
+
+ -- fehlix <fehlix@mxlinux.org>  Thu, 11 Mar 2021 18:44:05 -0400
+
 mx-goodies (21.02.03+1mx21) mx; urgency=medium
 
   * new xdg-user-dirs-update diversion 

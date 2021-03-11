@@ -76,35 +76,45 @@ run_report(){
     #exit 0
 #}
 quit(){
-	
-if [ -e /usr/bin/yad ]; then
-	##begin message box
-	
-	if [ ! -e "$HOME/.config/MX-Linux/qsi.chk" ]; then
-		selections=$(yad --form --title="Quick-system-info" --center --window-icon=mx-qsi --fixed --button=gtk-ok:0  --width=350 --height=100 --align=center \
-		--selectable-labels --focus-field=0 \
-		--field="\0":LBL ""\
-		--field="$BOLD$COPIED$BOLDclosed":LBL ""\
-		--field=" ":LBL ""\
-		--field="$BOLD$FORMATTED$BOLDclosed":LBL ""\
-		--field=" ":LBL ""\
-		--field="$BOLD$PASTE$BOLDclosed":LBL ""\
-		--field=" ":LBL ""\
-		--field="$DONOTSHOW":CHK "false")    
     
-		selections=${selections##"|||||||"} 
-		selections=${selections%%"|"}
-		#echo $selections
+if [ -x /usr/bin/yad ]; then
+    ##begin message box
     
-		if [ $selections = "TRUE" ]; then
-			if [ ! -d "$HOME/.config/MX-Linux/" ]; then
-				mkdir -p "$HOME/.config/MX-Linux/"
-			fi
-			touch "$HOME/.config/MX-Linux/qsi.chk"
-		fi
-	fi
+    if [ ! -e "$HOME/.config/MX-Linux/qsi.chk" ]; then
+        selections=$(yad --form \
+        --title="Quick System Info" \
+        --class="Quick System Info" \
+        --center \
+        --window-icon=mx-qsi \
+        --fixed --button='OK!gtk-ok:0'  \
+        --width=350 \
+        --height=100 \
+        --align=center \
+        --selectable-labels --focus-field=0 \
+        --field="\0":LBL ""\
+        --field="$BOLD$COPIED$BOLDclosed":LBL ""\
+        --field=" ":LBL ""\
+        --field="$BOLD$FORMATTED$BOLDclosed":LBL ""\
+        --field=" ":LBL ""\
+        --field="$BOLD$PASTE$BOLDclosed":LBL ""\
+        --field=" ":LBL ""\
+        --field="$DONOTSHOW":CHK "false" 2>/dev/null)    
+
+        RET=$?
+        
+        selections=${selections##"|||||||"} 
+        selections=${selections%%"|"}
+        #echo $selections
     
-	##end message box
+        if [ $RET = 0 ] && [ "$selections" = "TRUE" ]; then
+            if [ ! -d "$HOME/.config/MX-Linux/" ]; then
+                mkdir -p "$HOME/.config/MX-Linux/"
+            fi
+            touch "$HOME/.config/MX-Linux/qsi.chk"
+        fi
+    fi
+    
+    ##end message box
 fi
 
     echo
