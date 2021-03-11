@@ -14,7 +14,13 @@ export TEXTDOMAIN="mx-goodies"
 
 NOTFND=$(gettext 'Required inxi app not found')
 COPIED=$(gettext 'Report copied to system clipboard')
+FORMATTED=$(gettext 'Report is already formatted for forum.')
+PASTE=$(gettext 'Paste directly into forum post.')
 ANYKEY=$(gettext 'Press any key to close')
+DONOTSHOW=$(gettext 'Do not show this message in future')
+
+BOLD="<b>"
+BOLDclosed="</b>"
 
 #setup
 
@@ -59,14 +65,63 @@ run_report(){
     xclip -o -selection clipboard | xclip -i -selection primary
     echo
     echo "$COPIED"
+    echo "$FORMATTED"
+    echo "$PASTE"
 
 }
 
+#quit(){
+    #echo
+    #read -n 1 -s -r -p "$ANYKEY"
+    #exit 0
+#}
 quit(){
+    
+if [ -x /usr/bin/yad ]; then
+    ##begin message box
+    
+    if [ ! -e "$HOME/.config/MX-Linux/qsi.chk" ]; then
+        selections=$(yad --form \
+        --title="Quick System Info" \
+        --class="Quick System Info" \
+        --center \
+        --window-icon=mx-qsi \
+        --fixed --button='OK!gtk-ok:0'  \
+        --width=350 \
+        --height=100 \
+        --align=center \
+        --selectable-labels --focus-field=0 \
+        --field="\0":LBL ""\
+        --field="$BOLD$COPIED$BOLDclosed":LBL ""\
+        --field=" ":LBL ""\
+        --field="$BOLD$FORMATTED$BOLDclosed":LBL ""\
+        --field=" ":LBL ""\
+        --field="$BOLD$PASTE$BOLDclosed":LBL ""\
+        --field=" ":LBL ""\
+        --field="$DONOTSHOW":CHK "false" 2>/dev/null)    
+
+        RET=$?
+        
+        selections=${selections##"|||||||"} 
+        selections=${selections%%"|"}
+        #echo $selections
+    
+        if [ $RET = 0 ] && [ "$selections" = "TRUE" ]; then
+            if [ ! -d "$HOME/.config/MX-Linux/" ]; then
+                mkdir -p "$HOME/.config/MX-Linux/"
+            fi
+            touch "$HOME/.config/MX-Linux/qsi.chk"
+        fi
+    fi
+    
+    ##end message box
+fi
+
     echo
     read -n 1 -s -r -p "$ANYKEY"
     exit 0
 }
+
 
 quit_error(){
     local msg

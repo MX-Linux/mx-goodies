@@ -5,11 +5,12 @@
 # Configure system locales
 # some msg-strings to be translated
 #
-export TEXTDOMAINDIR=/usr/share/locale/ 
+export TEXTDOMAINDIR=/usr/share/locale/
 export TEXTDOMAIN="mx-goodies"
 #
 # some msg-strings to be translated
 #
+    CLOSE="$(gettext -d gtk30 'Close')"
  CANCELED="$(gettext 'canceled')"
     TITLE="$(gettext 'Configure System Locales')"
 SYSLOCALE="$(gettext 'System locale')"
@@ -18,9 +19,6 @@ SYSLOCALE="$(gettext 'System locale')"
 #
 CHKROOT="gettext su-to-root 'This command needs %s privileges to be executed.\n'"
 CHKROOT="$(eval $CHKROOT)"
-  CLOSE="gettext -d gtk30 'Close'"
-  CLOSE="$(eval $CLOSE)"
-
 
 # check root
 #
@@ -65,7 +63,7 @@ sys_lang() {
    sys_lang="${sys_lang#LANG=}"
    echo "$sys_lang"
 }
-      
+
 # locale sanity checks
 #
 PROC_LANG="C"
@@ -73,12 +71,12 @@ USER_LANG="$LANG"
 SYS_LANG="$(sys_lang)"
 
 if [ x"$USER_LANG" != "x" ] && \
-   LANG=C locale -a | sed s/utf8/UTF-8/ | grep -q "${USER_LANG/utf8/UTF-8}"; then 
+   LANG=C locale -a | sed s/utf8/UTF-8/ | grep -q "${USER_LANG/utf8/UTF-8}"; then
    PROC_LANG="$USER_LANG"
 elif [ x"$SYS_LANG" != "x" ] && \
-   LANG=C locale -a | sed s/utf8/UTF-8/ | grep -q "${SYS_LANG/utf8/UTF-8}"; then 
+   LANG=C locale -a | sed s/utf8/UTF-8/ | grep -q "${SYS_LANG/utf8/UTF-8}"; then
    PROC_LANG="$SYS_LANG"
-elif LANG=C locale -a | sed s/utf8/UTF-8/ | grep -q "C.UTF-8"; then 
+elif LANG=C locale -a | sed s/utf8/UTF-8/ | grep -q "C.UTF-8"; then
    PROC_LANG="C.UTF-8"
 fi
 
@@ -91,7 +89,7 @@ fi
        echo '"'"$TITLE"'"'" ${CANCELED}: exit [$RET]"
        echo " "
        exit $RET
-   else  
+   else
        echo "--"
        echo "${SYSLOCALE}:"
        SYS_LANG="$(sys_lang)"
@@ -99,26 +97,27 @@ fi
        echo "$SYS_LANG - $LANG_TITLE"
    fi
    ) | ( \
-   
+
    i=0
-   while read LINE; do 
+   while read LINE; do
        [[ -z "$LINE" ]] && continue
        [[ "$LINE" =~ 'dbind-WARNING' ]] && continue
        [[ "$LINE" =~ 'I/O error'     ]] && continue
        ((i++))
-	   if [ -n "$LINE" ] && [ -z "${LINE##*... done}" ]; then
+       if [ -n "$LINE" ] && [ -z "${LINE##*... done}" ]; then
          GEN_LANG="${LINE%... done}"
          LANG_TITLE="$(lang_title $GEN_LANG | sed -r 's/(<U)([[:xdigit:]]{4})>/\\u\2/g')"
          printf "$LINE - $LANG_TITLE\n"
-	   else
-		   [ $i = 1 ] && echo "$LINE"
-		   echo "$LINE"
-	   fi 
-   done 
+       else
+           [ $i = 1 ] && echo "$LINE"
+           echo "$LINE"
+       fi
+   done
    ) | ( read; \
-   LANG=C.UTF-8 yad \
+   LC_ALL= LANG=C.UTF-8 yad \
       --text-info \
       --title="$TITLE" \
+      --class="System Locales" \
       --window-icon=$ICON \
       --width=$WIDTH \
       --height=$HEIGHT \
@@ -127,7 +126,7 @@ fi
       --center \
       --on-top \
       --tail \
-      --button="$CLOSE"'!gtk-close:1'
+      --button="$CLOSE"'!gtk-close:1' 2>/dev/null
    )
 
 exit

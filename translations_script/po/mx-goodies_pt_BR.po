@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-25 17:12-0400\n"
+"POT-Creation-Date: 2021-02-21 11:35-0600\n"
 "PO-Revision-Date: 2017-12-31 03:14+0000\n"
 "Last-Translator: José Vieira <jvieira33@sapo.pt>, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/anticapitalista/teams/10162/pt_BR/)\n"
@@ -21,6 +21,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: system-locales-mx:13 archive/system-keyboard-mx:12
+msgid "canceled"
+msgstr "cancelado"
+
+#: system-locales-mx:14
+msgid "Configure System Locales"
+msgstr "Configurar as Localizações do Sistema"
+
+#: system-locales-mx:15
+msgid "System locale"
+msgstr "Localização do sistema"
 
 #: quick-system-info/quick-system-info-mx:15
 msgid "Required inxi app not found"
@@ -31,21 +43,21 @@ msgid "Report copied to system clipboard"
 msgstr "Relatório copiado para a área de transferência do sistema"
 
 #: quick-system-info/quick-system-info-mx:17
+msgid "Report is already formatted for forum."
+msgstr ""
+
+#: quick-system-info/quick-system-info-mx:18
+msgid "Paste directly into forum post."
+msgstr ""
+
+#: quick-system-info/quick-system-info-mx:19
 msgid "Press any key to close"
 msgstr "Pressione qualquer tecla para fechar"
 
-#: system-keyboard-mx:12 system-locales-mx:13
-msgid "canceled"
-msgstr "cancelado"
+#: quick-system-info/quick-system-info-mx:20
+msgid "Do not show this message in future"
+msgstr ""
 
-#: system-keyboard-mx:13
+#: archive/system-keyboard-mx:13
 msgid "System Keyboard Configuration"
 msgstr "Configuração do Teclado do Sistema"
-
-#: system-locales-mx:14
-msgid "Configure System Locales"
-msgstr "Configurar as Localizações do Sistema"
-
-#: system-locales-mx:15
-msgid "System locale"
-msgstr "Localização do sistema"
