@@ -53,6 +53,7 @@ if [ -d "$targetfolder" ]; then
 			fi
 		fi
 	done
+	chmod a+x "$targetfolder/*.desktop"
 fi
 }
 
