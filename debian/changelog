@@ -1,3 +1,9 @@
+mx-goodies (21.02.03+3mx21) mx; urgency=medium
+
+  * make sure desktop files copied to Desktop are executable
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Thu, 11 Mar 2021 23:24:47 -0500
+
 mx-goodies (21.02.03+2mx21) mx; urgency=medium
 
   * small fixes in qsi and system-locale-mx 
