@@ -50,10 +50,10 @@ if [ -d "$targetfolder" ]; then
 		if [ ! -e "$targetfolder/$i" ]; then
 			if [ -e "/usr/share/applications/$i" ]; then
 				cp "/usr/share/applications/$i" "$targetfolder" 
+				chmod a+x "$targetfolder/$i"
 			fi
 		fi
 	done
-	chmod a+x "$targetfolder/*.desktop"
 fi
 }
 
