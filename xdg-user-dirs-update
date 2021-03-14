@@ -38,7 +38,7 @@ copystuff "$applist"
 #mark so we don't do it again
 
 if [ ! -d "$configfolder" ]; then
-	mkdir -p "configfolder"
+	mkdir -p "$configfolder"
 fi
 
 touch "$configfolder/$xdg_checkfile"

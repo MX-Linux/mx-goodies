@@ -1,3 +1,9 @@
+mx-goodies (21.02.03+5mx21) mx; urgency=medium
+
+  * correct typo in xdg-user-dirs-update diversion 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 13 Mar 2021 22:04:45 -0500
+
 mx-goodies (21.02.03+4mx21) mx; urgency=medium
 
   * fix permissions issue 
