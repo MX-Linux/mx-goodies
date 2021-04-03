@@ -1,8 +1,8 @@
 mx-goodies (21.02.03+3) mx; urgency=medium
 
-  * add efibootmgr-wrapper to allow access to efivars 
+  * efimount init script
 
- -- fehlix <fehlix@mxlinux.org>  Sat, 03 Apr 2021 12:06:56 -0400
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 03 Apr 2021 18:41:42 -0400
 
 mx-goodies (21.02.03+2) mx; urgency=medium
 
