@@ -1,3 +1,9 @@
+mx-goodies (21.04.01mx21) mx; urgency=medium
+
+  * efimout script for bullseye 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 03 Apr 2021 19:04:01 -0400
+
 mx-goodies (21.02.03+5mx21) mx; urgency=medium
 
   * correct typo in xdg-user-dirs-update diversion 
