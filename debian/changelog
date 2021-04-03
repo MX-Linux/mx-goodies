@@ -1,3 +1,9 @@
+mx-goodies (21.02.03+3) mx; urgency=medium
+
+  * add efibootmgr-wrapper to allow access to efivars 
+
+ -- fehlix <fehlix@mxlinux.org>  Sat, 03 Apr 2021 12:06:56 -0400
+
 mx-goodies (21.02.03+2) mx; urgency=medium
 
   * small fixes in qsi and system-locale-mx 
