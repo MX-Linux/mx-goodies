@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#DEBHELPER#
+
+#set -e
+
+case "$1" in
+  purge|remove) dpkg-divert --quiet                           \
+                            --remove                          \
+                            --package mx-goodies              \
+                            --rename                          \
+                            --divert /usr/bin/efibootmgr.real \
+                             /usr/bin/efibootmgr
+                             ;;
+esac 
+
+exit 0

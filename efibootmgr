@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# efibootmgr wrapper script to provide access to efivars
+# part of mx-goodies
+
+efibootmgr=/usr/bin/efibootmgr.real
+
+# check efibootmgr exist
+if  [ ! -x $efibootmgr ]; then
+    echo "Not found: $efibootmgr"
+    exit 1
+fi
+
+# run efibootmgr if efivars are accessible
+if ls /sys/firmware/efi/efivars/* 1>/dev/null 2>&1 || \
+   ls /sys/firmware/efi/vars/* 1>/dev/null 2>&1; then
+
+    exec $efibootmgr "$@"
+
+else
+    # make efivars accessible
+    efi_vars_dir=/sys/firmware/efi/efivars
+    if [ -e $efi_vars_dir ]; then
+        SUDO="sudo"
+        [ $(id -u) = 0 ] && SUDO=""
+        # If not running as root or not running interactively on a tty, don't do anything
+        if [ -z "$SUDO" ] || tty -s; then
+            grep -sq ^efivarfs /proc/self/mounts || $SUDO mount -t efivarfs  efivarfs  $efi_vars_dir
+        fi
+    fi
+    exec $efibootmgr "$@"
+fi
