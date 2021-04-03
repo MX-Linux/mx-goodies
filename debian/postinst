@@ -6,6 +6,10 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-remov
     update-rc.d brightness-init remove
     rm /etc/init.d/brightness-init
     fi
+    
+    if [ -e /etc/init.d/efimount ]; then
+    update-rc.d efimount defaults
+    fi
 fi
 
 #DEBHELPER#
