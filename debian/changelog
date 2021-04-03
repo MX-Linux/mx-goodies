@@ -1,32 +1,8 @@
-mx-goodies (21.02.03+5mx21) mx; urgency=medium
-
-  * correct typo in xdg-user-dirs-update diversion 
-
- -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 13 Mar 2021 22:04:45 -0500
-
-mx-goodies (21.02.03+4mx21) mx; urgency=medium
-
-  * fix permissions issue 
-
- -- Dolphin Oracle <dolphinoracle@gmail.com>  Thu, 11 Mar 2021 23:32:55 -0500
-
-mx-goodies (21.02.03+3mx21) mx; urgency=medium
-
-  * make sure desktop files copied to Desktop are executable
-
- -- Dolphin Oracle <dolphinoracle@gmail.com>  Thu, 11 Mar 2021 23:24:47 -0500
-
-mx-goodies (21.02.03+2mx21) mx; urgency=medium
+mx-goodies (21.02.03+2) mx; urgency=medium
 
   * small fixes in qsi and system-locale-mx 
 
  -- fehlix <fehlix@mxlinux.org>  Thu, 11 Mar 2021 18:44:05 -0400
-
-mx-goodies (21.02.03+1mx21) mx; urgency=medium
-
-  * new xdg-user-dirs-update diversion 
-
- -- Dolphin Oracle <dolphinoracle@gmail.com>  Mon, 01 Mar 2021 18:33:46 -0500
 
 mx-goodies (21.02.03) mx; urgency=medium
 
