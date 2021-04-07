@@ -1,3 +1,9 @@
+mx-goodies (21.02.03+4) mx; urgency=medium
+
+  * run efimount at postinstall
+
+ -- fehlix <fehlix@mxlinux.org>  Wed, 07 Apr 2021 07:01:27 -0400
+
 mx-goodies (21.02.03+3) mx; urgency=medium
 
   * efimount init script
