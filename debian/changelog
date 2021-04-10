@@ -1,3 +1,9 @@
+mx-goodies (21.02.03+5) mx; urgency=medium
+
+  * adjust postinstall efimount for PREEMPT_RT realtime kernel
+
+ -- fehlix <fehlix@mxlinux.org>  Fri, 09 Apr 2021 13:49:37 -0400
+
 mx-goodies (21.02.03+4) mx; urgency=medium
 
   * run efimount at postinstall

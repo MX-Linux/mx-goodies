@@ -11,11 +11,12 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-remov
 		rm /etc/init.d/brightness-init
 		fi
     
-		if [ -x /etc/init.d/efimount ]; then
-		update-rc.d efimount defaults
-		/etc/init.d/efimount
-		fi
-	fi
+        # mount efivars if needed
+        if [ -x /etc/init.d/efimount ]; then
+           update-rc.d efimount defaults || :
+           /etc/init.d/efimount          || :
+        fi
+    fi
 fi
 
 #DEBHELPER#
