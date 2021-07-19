@@ -30,6 +30,12 @@ if [ -e "/live/linux" ]; then
 	if [ ! -e "$HOME/Desktop/Installer.desktop" ]; then 
 		copystuff "$liveapplist"
 	fi
+	#special case, check for installer link for idesktop
+	if [ -d "$HOME/.idesktop" ]; then
+		if [ ! -e "$HOME/.idesktop/gazelle.lnk" ]; then
+			cp /usr/local/share/live-files/files/etc/skel/.idesktop/gazelle.lnk "$HOME/.idesktop" 
+		fi
+	fi
 fi
 
 #copy everything else
