@@ -36,6 +36,8 @@ if [ -e "/live/linux" ]; then
 			cp /usr/local/share/live-files/files/etc/skel/.idesktop/gazelle.lnk "$HOME/.idesktop" 
 		fi
 	fi
+	#special case; make sure NoDisplay is not in minstall.desktop file
+	sed -i '/NoDisplay*/d' "$targetfolder/minstall.desktop"
 fi
 
 #copy everything else
