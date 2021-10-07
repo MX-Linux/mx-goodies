@@ -7,16 +7,23 @@
 #set -e
 
 case "$1" in
-  purge|remove) dpkg-divert --quiet                                               \
-                            --remove                                              \
-                            --package mx-goodies               \
-                            --rename                                              \
+  purge|remove) dpkg-divert --quiet                                     \
+                            --remove                                    \
+                            --package mx-goodies                        \
+                            --rename                                    \
                             --divert /usr/bin/xdg-user-dirs-update.real \
                              /usr/bin/xdg-user-dirs-update
+
+                dpkg-divert --quiet                                         \
+                            --remove                                        \
+                            --package mx-goodies                            \
+                            --rename                                        \
+                            --divert /usr/bin/xdg-user-dirs-gtk-update.real \
+                             /usr/bin/xdg-user-dirs-gtk-update
                 ;;
 
              *) :
                 ;;
-esac 
+esac
 
 exit 0
