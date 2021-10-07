@@ -1,3 +1,9 @@
+mx-goodies (21.10.01) mx; urgency=medium
+
+  * fix update standard folders to current language
+
+ -- fehlix <fehlix@mxlinux.org>  Thu, 07 Oct 2021 00:22:12 +0000
+
 mx-goodies (21.07.02) mx; urgency=medium
 
   * fix minstall.desktop file so it displays on plasma desktop

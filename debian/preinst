@@ -7,16 +7,23 @@
 #set -e
 
 case "$1" in
-  install|upgrade) dpkg-divert --quiet                                               \
-                               --add                                                 \
-                               --package mx-goodies               \
-                               --rename                                              \
-                               --divert /usr/bin/xdg-user-dirs-update.real \
+  install|upgrade) dpkg-divert --quiet                                         \
+                               --add                                           \
+                               --package mx-goodies                            \
+                               --rename                                        \
+                               --divert /usr/bin/xdg-user-dirs-update.real     \
                                /usr/bin/xdg-user-dirs-update
+
+                   dpkg-divert --quiet                                         \
+                               --add                                           \
+                               --package mx-goodies                            \
+                               --rename                                        \
+                               --divert /usr/bin/xdg-user-dirs-gtk-update.real \
+                               /usr/bin/xdg-user-dirs-gtk-update
                    ;;
 
                 *) :
                    ;;
-esac 
+esac
 
 exit 0
