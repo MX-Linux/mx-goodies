@@ -1,3 +1,9 @@
+mx-goodies (21.10.02) mx; urgency=medium
+
+  * add wrapper to suppress QCommandLineParser warnings in debconf-kde-helper
+
+ -- fehlix <fehlix@mxlinux.org>  Sun, 24 Oct 2021 19:53:27 +0000
+
 mx-goodies (21.10.01) mx; urgency=medium
 
   * fix update standard folders to current language

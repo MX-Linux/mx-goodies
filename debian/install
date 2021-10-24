@@ -12,6 +12,7 @@ xfce4-notifyd-start.desktop etc/xdg/autostart
 system-locales-mx	usr/bin
 xdg-user-dirs-update	usr/bin
 xdg-user-dirs-gtk-update	usr/bin
+debconf-kde-helper	usr/bin
 #system-keyboard-mx  usr/bin
 #system-keyboard-mx.desktop usr/share/applications
 system-keyboard-mx.svg usr/share/icons/hicolor/scalable/apps
