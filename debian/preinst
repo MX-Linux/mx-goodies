@@ -20,6 +20,13 @@ case "$1" in
                                --rename                                        \
                                --divert /usr/bin/xdg-user-dirs-gtk-update.real \
                                /usr/bin/xdg-user-dirs-gtk-update
+
+                   dpkg-divert --quiet                                         \
+                               --add                                           \
+                               --package mx-goodies                            \
+                               --rename                                        \
+                               --divert /usr/bin/debconf-kde-helper.real       \
+                               /usr/bin/debconf-kde-helper
                    ;;
 
                 *) :
