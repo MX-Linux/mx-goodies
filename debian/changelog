@@ -1,3 +1,9 @@
+mx-goodies (22.03.01) mx; urgency=medium
+
+  * add secure boot state, boot mode to quick-system-info
+
+ -- fehlix <fehlix@mxlinux.org>  Sat, 12 Mar 2022 13:31:23 +0000
+
 mx-goodies (21.10.02) mx; urgency=medium
 
   * add wrapper to suppress QCommandLineParser warnings in debconf-kde-helper
