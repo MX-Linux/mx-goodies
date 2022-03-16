@@ -1,11 +1,15 @@
 #!/bin/bash
 
-##/local/bin/quick-system-info-mx
 ##wrapper script for inxi to do quick "inxi -F" and copy report to clipboard
 ##part of mx-goodies package
 ## changes to optimze inxi run
 
-#requires xsel package
+#requires xclip package
+
+#check running in bash
+if test -z "$BASH_VERSION"; then
+   exec "$0"
+fi
 
 ##locale stuff
 
@@ -26,7 +30,7 @@ BOLDclosed="</b>"
 
 main(){
 
-    #check for existing of inxi
+    #check inxi
 
     command -v inxi  >/dev/null || quit_error "$NOTFND"
 
@@ -50,20 +54,33 @@ run_report(){
     local uuid_filter="[[:xdigit:]]{8}-([[:xdigit:]]{4}-){3}[[:xdigit:]]{12}"
     local video_tweaks=/live/config/video-tweaks
 
-    ( [ -n "$snapshot_created" ] && echo $snapshot_created
-             inxi -Fxxxrza -c$inxi_color | \
-             sed -r -e "/Host:/{s/${host_filter}(.*)/\1<filter>\4/}" \
-                    -e "s/${uuid_filter}/<filter>/g"
-             [ -r $video_tweaks ] && echo 'Video Tweaks:' && cat $video_tweaks 2>/dev/null
-             ) | \
-             tee >(
-             ( echo "[code]";
-             sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g';
-             echo "[/code]" ) | \
-             xclip -selection clipboard 2>/dev/null )
+    (
+    echo ""
+    echo "[code]"
+    [ -n "$snapshot_created" ] && echo $snapshot_created
+    inxi -Fxxxrza -c$inxi_color | \
+    sed -r -e "/Host:/{s/${host_filter}(.*)/\1<filter>\4/}
+               s/${uuid_filter}/<filter>/g
+               s/(Shell[^:]*):[^:]*default:/\1:/
+               t qsi
+               s/(Shell[^q]+)quick-system-in\b/\1bash/
+               :qsi
+               s/quick-system-in\b/quick-system-info-mx/"
+    local BM=$(test -d /sys/firmware/efi && echo "UEFI" || echo "BIOS (legacy, CSM, MBR)")
+    echo "Boot Mode: $BM"
+    local SB=$((mokutil --sb-state || bootctl --no-variables status) 2>/dev/null | sed -nr 's/^\s*Secure\s?Boot:?/SecureBoot/p')
+    [[ -n "$SB" &&  -z "${SB//*enabled*/}" ]] && echo "$SB"
+    [ -r $video_tweaks ] && echo 'Video Tweaks:' && cat $video_tweaks 2>/dev/null
+    echo "[/code]"
+    echo ""
+    ) | \
+    tee >(
+    (
+    sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g';
+    ) | \
+    xclip -selection clipboard 2>/dev/null )
 
     xclip -o -selection clipboard | xclip -i -selection primary
-    echo
     echo "$COPIED"
     echo "$FORMATTED"
     echo "$PASTE"
@@ -75,11 +92,12 @@ run_report(){
     #read -n 1 -s -r -p "$ANYKEY"
     #exit 0
 #}
+
 quit(){
-    
+
 if [ -x /usr/bin/yad ]; then
     ##begin message box
-    
+
     if [ ! -e "$HOME/.config/MX-Linux/qsi.chk" ]; then
         selections=$(yad --form \
         --title="Quick System Info" \
@@ -98,14 +116,14 @@ if [ -x /usr/bin/yad ]; then
         --field=" ":LBL ""\
         --field="$BOLD$PASTE$BOLDclosed":LBL ""\
         --field=" ":LBL ""\
-        --field="$DONOTSHOW":CHK "false" 2>/dev/null)    
+        --field="$DONOTSHOW":CHK "false" 2>/dev/null)
 
         RET=$?
-        
-        selections=${selections##"|||||||"} 
+
+        selections=${selections##"|||||||"}
         selections=${selections%%"|"}
         #echo $selections
-    
+
         if [ $RET = 0 ] && [ "$selections" = "TRUE" ]; then
             if [ ! -d "$HOME/.config/MX-Linux/" ]; then
                 mkdir -p "$HOME/.config/MX-Linux/"
@@ -113,7 +131,7 @@ if [ -x /usr/bin/yad ]; then
             touch "$HOME/.config/MX-Linux/qsi.chk"
         fi
     fi
-    
+
     ##end message box
 fi
 
