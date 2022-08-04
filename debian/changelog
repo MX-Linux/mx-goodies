@@ -1,3 +1,9 @@
+mx-goodies (22.08.01) mx; urgency=medium
+
+  * add kernel-source-version string to quick-system-info
+
+ -- fehlix <fehlix@mxlinux.org>  Thu, 04 Aug 2022 09:27:21 -0400
+
 mx-goodies (22.03.01) mx; urgency=medium
 
   * add secure boot state, boot mode to quick-system-info
