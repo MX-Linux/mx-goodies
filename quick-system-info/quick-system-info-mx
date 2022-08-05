@@ -26,6 +26,10 @@ DONOTSHOW=$(gettext 'Do not show this message in future')
 BOLD="<b>"
 BOLDclosed="</b>"
 
+# kernel version strings
+UNAMER=$(uname -r)
+UNAMEV=$(uname -v | grep -oP '.*[[:space:]]\K[0-9]+[.][0-9]+[.][0-9]+[-][0-9]+[^[:space:]]*')
+
 #setup
 
 main(){
@@ -60,6 +64,7 @@ run_report(){
     [ -n "$snapshot_created" ] && echo $snapshot_created
     inxi -Fxxxrza -c$inxi_color | \
     sed -r -e "/Host:/{s/${host_filter}(.*)/\1<filter>\4/}
+               /Kernel:/s/$UNAMER/$UNAMER${UNAMEV:+ \[$UNAMEV\]}/
                s/${uuid_filter}/<filter>/g
                s/(Shell[^:]*):[^:]*default:/\1:/
                t qsi
