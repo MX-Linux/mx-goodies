@@ -1,3 +1,9 @@
+mx-goodies (22.08.02) mx; urgency=medium
+
+  * add -g gui switch
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 07 Aug 2022 13:26:20 -0400
+
 mx-goodies (22.08.01) mx; urgency=medium
 
   * add kernel-source-version string to quick-system-info

@@ -22,6 +22,7 @@ FORMATTED=$(gettext 'Report is already formatted for forum.')
 PASTE=$(gettext 'Paste directly into forum post.')
 ANYKEY=$(gettext 'Press any key to close')
 DONOTSHOW=$(gettext 'Do not show this message in future')
+GUI="false"
 
 BOLD="<b>"
 BOLDclosed="</b>"
@@ -33,10 +34,23 @@ UNAMEV=$(uname -v | grep -oP '.*[[:space:]]\K[0-9]+[.][0-9]+[.][0-9]+[-][0-9]+[^
 #setup
 
 main(){
-
+	
     #check inxi
 
     command -v inxi  >/dev/null || quit_error "$NOTFND"
+    
+while getopts ":g" opt; do
+    case $opt in
+         g) GUI="true"
+           ;;
+         *)
+           # Unknown error: start GUI
+           #launch_gui $@
+           echo $"Invalid option" | tee -a $LOG
+           exit 0
+           ;;
+    esac
+done
 
     run_report
 
@@ -57,7 +71,9 @@ run_report(){
     local host_filter="^(.+Host:(${ansi}|[[:space:]])+)([[:alnum:].-]+)"
     local uuid_filter="[[:xdigit:]]{8}-([[:xdigit:]]{4}-){3}[[:xdigit:]]{12}"
     local video_tweaks=/live/config/video-tweaks
-
+	if [ "$GUI" == "true" ]; then
+		inxi_color="0"
+	fi
     (
     echo ""
     echo "[code]"
@@ -83,8 +99,11 @@ run_report(){
     (
     sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g';
     ) | \
+    
     xclip -selection clipboard 2>/dev/null )
-
+    if [ "$GUI" == "true" ]; then
+		exit 0
+	fi
     xclip -o -selection clipboard | xclip -i -selection primary
     echo "$COPIED"
     echo "$FORMATTED"
