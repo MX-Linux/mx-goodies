@@ -74,7 +74,7 @@ run_report(){
 	if [ "$GUI" == "true" ]; then
 		inxi_color="0"
 	fi
-    (
+    REPORT=$(
     echo ""
     echo "[code]"
     [ -n "$snapshot_created" ] && echo $snapshot_created
@@ -94,16 +94,17 @@ run_report(){
     [ -r $video_tweaks ] && echo 'Video Tweaks:' && cat $video_tweaks 2>/dev/null
     echo "[/code]"
     echo ""
-    ) | \
-    tee >(
+    ) 
+    if [ "$GUI" == "true" ]; then
+		echo "$REPORT"
+		exit 0
+	fi
+    echo "$REPORT" |tee >(
     (
     sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g';
     ) | \
     
     xclip -selection clipboard 2>/dev/null )
-    if [ "$GUI" == "true" ]; then
-		exit 0
-	fi
     xclip -o -selection clipboard | xclip -i -selection primary
     echo "$COPIED"
     echo "$FORMATTED"

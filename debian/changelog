@@ -1,3 +1,9 @@
+mx-goodies (22.08.03mx21) mx; urgency=medium
+
+  * don't copy to clipboard if running the gui 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Mon, 08 Aug 2022 21:22:04 -0400
+
 mx-goodies (22.08.02mx21) mx; urgency=medium
 
   * add -g gui switch
