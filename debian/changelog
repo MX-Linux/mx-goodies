@@ -1,3 +1,9 @@
+mx-goodies (23.01.03mx21) mx; urgency=medium
+
+  * take care of DESKTOP files with spaces
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 08 Jan 2023 17:16:17 -0500
+
 mx-goodies (23.01.02mx21) mx; urgency=medium
 
   * do sed on minstall.desktop before checksum
