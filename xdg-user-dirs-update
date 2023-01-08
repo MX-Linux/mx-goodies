@@ -59,6 +59,11 @@ if [ -d "$targetfolder" ]; then
 			if [ -e "/usr/share/applications/$i" ]; then
 				cp "/usr/share/applications/$i" "$targetfolder" 
 				chmod a+x "$targetfolder/$i"
+				#make executable from Xfce desktop. safe as long as gio exists on system
+				if [ -x /usr/bin/gio ]; then
+					gio set -t string "$targetfolder/$i" metadata::xfce-exe-checksum "$(sha256sum $targetfolder/$i | awk '{print $1}')"
+				fi
+				
 			fi
 		fi
 	done
