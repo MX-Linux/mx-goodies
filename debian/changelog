@@ -1,5 +1,11 @@
 mx-goodies (23.01.03mx21) mx; urgency=medium
 
+  * correct Py-Loader.desktop 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Tue, 10 Jan 2023 19:31:54 -0500
+
+mx-goodies (23.01.03mx21) mx; urgency=medium
+
   * take care of DESKTOP files with spaces
 
  -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 08 Jan 2023 17:16:17 -0500
