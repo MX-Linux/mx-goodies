@@ -75,8 +75,6 @@ run_report(){
 		inxi_color="0"
 	fi
     REPORT=$(
-    echo ""
-    echo "[code]"
     [ -n "$snapshot_created" ] && echo $snapshot_created
     inxi -Fxxxrza -c$inxi_color | \
     sed -r -e "/Host:/{s/${host_filter}(.*)/\1<filter>\4/}
@@ -92,14 +90,12 @@ run_report(){
     local SB=$((mokutil --sb-state || bootctl --no-variables status) 2>/dev/null | sed -nr 's/^\s*Secure\s?Boot:?/SecureBoot/p')
     [[ -n "$SB" &&  -z "${SB//*enabled*/}" ]] && echo "$SB"
     [ -r $video_tweaks ] && echo 'Video Tweaks:' && cat $video_tweaks 2>/dev/null
-    echo "[/code]"
-    echo ""
     ) 
     if [ "$GUI" == "true" ]; then
 		echo "$REPORT"
 		exit 0
 	fi
-    echo "$REPORT" |tee >(
+    echo "[code]$REPORT[/code]" |tee >(
     (
     sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g';
     ) | \
