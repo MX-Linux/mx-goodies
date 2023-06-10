@@ -91,11 +91,9 @@ run_report(){
     [[ -n "$SB" &&  -z "${SB//*enabled*/}" ]] && echo "$SB"
     [ -r $video_tweaks ] && echo 'Video Tweaks:' && cat $video_tweaks 2>/dev/null
     ) 
-    if [ "$GUI" == "true" ]; then
-		echo "$REPORT"
-		exit 0
-	fi
-    echo "[code]$REPORT[/code]" |tee >(
+    echo "$REPORT"
+    [ "$GUI" == "true" ] && exit 0
+    echo "[code]$REPORT[/code]" | (
     (
     sed -r 's/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g';
     ) | \
