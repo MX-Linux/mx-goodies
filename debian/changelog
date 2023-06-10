@@ -1,3 +1,9 @@
+mx-goodies (23.06.03mx23) mx; urgency=medium
+
+  * use inxi built in filters
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 10 Jun 2023 17:04:55 -0400
+
 mx-goodies (23.06.02mx23) mx; urgency=medium
 
   * remove dmesg non-user override
