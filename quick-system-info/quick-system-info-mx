@@ -73,7 +73,7 @@ run_report(){
 	fi
     REPORT=$(
     [ -n "$snapshot_created" ] && echo $snapshot_created
-    inxi -Fxxxra --filter-all -c$inxi_color | \
+    inxi -Fxxxrza --filter --filter-label --filter-uuid -c$inxi_color | \
     sed -r -e "/Kernel:/s/$UNAMER/$UNAMER${UNAMEV:+ \[$UNAMEV\]}/"
     local BM=$(test -d /sys/firmware/efi && echo "UEFI" || echo "BIOS (legacy, CSM, MBR)")
     echo "Boot Mode: $BM"
