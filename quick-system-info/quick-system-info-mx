@@ -74,10 +74,8 @@ run_report(){
     REPORT=$(
     [ -n "$snapshot_created" ] && echo $snapshot_created
     if [ $(echo $DISTRIB_RELEASE | cut -d. -f1) != 21 ]; then
-    	echo "23 or higher"
     	filters="--filter-all"
     else
-    	echo "less than 23"
     	filters="--filter --filter-label --filter-uuid"
     fi
    	inxi -Fxxxra $filters -c$inxi_color | \
