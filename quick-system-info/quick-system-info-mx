@@ -59,7 +59,7 @@ done
 }
 
 run_report(){
-
+    . /etc/lsb-release
     local snapshot_created=""
     if [ -e "/etc/snapshot_created" ]; then
         snapshot_created="Snapshot created on: "$(cat /etc/snapshot_created)
@@ -73,7 +73,14 @@ run_report(){
 	fi
     REPORT=$(
     [ -n "$snapshot_created" ] && echo $snapshot_created
-    inxi -Fxxxra --filter-all -c$inxi_color | \
+    if [ $(echo $DISTRIB_RELEASE | cut -d. -f1) != 21 ]; then
+    	echo "23 or higher"
+    	filters="--filter-all"
+    else
+    	echo "less than 23"
+    	filters="--filter --filter-label --filter-uuid"
+    fi
+   	inxi -Fxxxra "$filters" -c$inxi_color | \
     sed -r -e "/Kernel:/s/$UNAMER/$UNAMER${UNAMEV:+ \[$UNAMEV\]}/"
     local BM=$(test -d /sys/firmware/efi && echo "UEFI" || echo "BIOS (legacy, CSM, MBR)")
     echo "Boot Mode: $BM"

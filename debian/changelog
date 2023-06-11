@@ -1,3 +1,9 @@
+mx-goodies (23.06.04) mx; urgency=medium
+
+  * use different filters on less than mx23 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 11 Jun 2023 07:19:53 -0400
+
 mx-goodies (23.06.03) mx; urgency=medium
 
   * use inxi built in filters
