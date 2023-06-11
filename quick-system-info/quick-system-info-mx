@@ -80,7 +80,7 @@ run_report(){
     	echo "less than 23"
     	filters="--filter --filter-label --filter-uuid"
     fi
-   	inxi -Fxxxra "$filters" -c$inxi_color | \
+   	inxi -Fxxxra $filters -c$inxi_color | \
     sed -r -e "/Kernel:/s/$UNAMER/$UNAMER${UNAMEV:+ \[$UNAMEV\]}/"
     local BM=$(test -d /sys/firmware/efi && echo "UEFI" || echo "BIOS (legacy, CSM, MBR)")
     echo "Boot Mode: $BM"
