@@ -73,7 +73,7 @@ run_report(){
 	fi
     REPORT=$(
     [ -n "$snapshot_created" ] && echo $snapshot_created
-    if [ $(echo $DISTRIB_RELEASE | cut -d. -f1) != 21 ]; then
+    if [ -n "$(inxi --help |grep filter-all)" ]; then
     	filters="--filter-all"
     else
     	filters="--filter --filter-label --filter-uuid"
