@@ -1,3 +1,9 @@
+mx-goodies (23.07.02) mx; urgency=medium
+
+  * update ps_mem.py shebang statement
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Fri, 04 Aug 2023 20:54:01 -0400
+
 mx-goodies (23.07.01) mx; urgency=medium
 
   * adjust qsi filter check
