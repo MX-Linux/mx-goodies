@@ -79,7 +79,8 @@ run_report(){
     	filters="--filter --filter-label --filter-uuid"
     fi
    	inxi -Fxxxra $filters -c$inxi_color | \
-    sed -r -e "/Kernel:/s/$UNAMER/$UNAMER${UNAMEV:+ \[$UNAMEV\]}/"
+    sed -r -e "/Kernel:/s/$UNAMER/$UNAMER${UNAMEV:+ \[$UNAMEV\]}/
+		s/mapped: .*/mapped: <FILTER>/g"
     local BM=$(test -d /sys/firmware/efi && echo "UEFI" || echo "BIOS (legacy, CSM, MBR)")
     echo "Boot Mode: $BM"
     local SB=$((mokutil --sb-state || bootctl --no-variables status) 2>/dev/null | sed -nr 's/^\s*Secure\s?Boot:?/SecureBoot/p')
