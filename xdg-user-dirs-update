@@ -13,6 +13,7 @@ configfolder="$HOME/.config/MX-Linux"
 targetfolder="$(xdg-user-dir DESKTOP)"
 xdg_checkfile="xdg_check"
 liveapplist="minstall.desktop"
+rpi_list="raspi-doc.desktop rpi-tips.desktop raspi-config.desktop"
 
 applist="FAQ.desktop \ 
 Help.desktop"
@@ -36,6 +37,11 @@ if [ -e "/live/linux" ]; then
 			cp /usr/local/share/live-files/files/etc/skel/.idesktop/gazelle.lnk "$HOME/.idesktop" 
 		fi
 	fi
+fi
+
+#copy files for rpi_respin
+if [ "$(grep rpi_arm64 /etc/mx-version)" ]; then
+	copystuff "$rpi_list"
 fi
 
 #copy everything else
