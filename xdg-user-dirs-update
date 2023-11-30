@@ -40,7 +40,7 @@ if [ -e "/live/linux" ]; then
 fi
 
 #copy files for rpi_respin
-if [ "$(grep rpi.*arm64 /etc/mx-version)" ]; then
+if [ -n "$(grep rpi.*arm64 /etc/mx-version)" ]; then
 	copystuff "$rpi_list"
 fi
 
