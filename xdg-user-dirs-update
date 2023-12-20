@@ -13,9 +13,11 @@ configfolder="$HOME/.config/MX-Linux"
 targetfolder="$(xdg-user-dir DESKTOP)"
 xdg_checkfile="xdg_check"
 liveapplist="minstall.desktop"
-rpi_list="rpi-tips.desktop"
+rpi_list="FAQ.desktop \
+rpi-tips.desktop"
 
-applist="FAQ.desktop"
+applist="FAQ.desktop \ 
+Help.desktop"
 
 #check to see if we need to do anything else
 
@@ -41,10 +43,12 @@ fi
 #copy files for rpi_respin
 if [ -n "$(grep rpi.*arm64 /etc/mx-version)" ]; then
 	copystuff "$rpi_list"
+else
+        #copy everything else
+        copystuff "$applist"
 fi
 
-#copy everything else
-copystuff "$applist"
+
 
 #mark so we don't do it again
 
