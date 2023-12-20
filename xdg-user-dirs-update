@@ -13,10 +13,9 @@ configfolder="$HOME/.config/MX-Linux"
 targetfolder="$(xdg-user-dir DESKTOP)"
 xdg_checkfile="xdg_check"
 liveapplist="minstall.desktop"
-rpi_list="raspi-doc.desktop rpi-tips.desktop raspi-config.desktop"
+rpi_list="rpi-tips.desktop"
 
-applist="FAQ.desktop \ 
-Help.desktop"
+applist="FAQ.desktop"
 
 #check to see if we need to do anything else
 
