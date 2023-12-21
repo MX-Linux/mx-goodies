@@ -13,7 +13,7 @@ configfolder="$HOME/.config/MX-Linux"
 targetfolder="$(xdg-user-dir DESKTOP)"
 xdg_checkfile="xdg_check"
 liveapplist="minstall.desktop"
-rpi_list="FAQ.desktop rpi-tips.desktop"
+rpi_list="FAQ.desktop rpi-tips.desktop rpi-video.desktop"
 
 applist="FAQ.desktop rpi-video.desktop Help.desktop"
 
