@@ -1,3 +1,10 @@
+mx-goodies (24.01.02) mx; urgency=medium
+
+  * hide system-locales-mx from menu
+  * still present
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Wed, 17 Jan 2024 23:57:28 -0500
+
 mx-goodies (24.01.01) mx; urgency=medium
 
   * update translations 
