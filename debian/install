@@ -13,7 +13,6 @@ xdg-user-dirs-update	usr/bin
 xdg-user-dirs-gtk-update	usr/bin
 debconf-kde-helper	usr/bin
 policy/* usr/share/polkit-1/actions
-script/* usr/bin
 system-keyboard-mx.svg usr/share/icons/hicolor/scalable/apps
 #system-locales-mx.desktop usr/share/applications
 translations_script/mo/* /
