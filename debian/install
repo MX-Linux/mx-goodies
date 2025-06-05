@@ -1,4 +1,4 @@
-bin/* 			usr/local/bin 
+bin/* 			usr/bin 
 init.d/*		etc/init.d
 fstrim-mx       	etc/cron.weekly      
 Jar-Loader.desktop	usr/share/applications
