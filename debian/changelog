@@ -1,3 +1,9 @@
+mx-goodies (25.11.02mx25) mx; urgency=medium
+
+  * fix misconfigured default .bashrc
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Mon, 10 Nov 2025 18:26:28 -0500
+
 mx-goodies (25.11.01mx25) mx; urgency=medium
 
   * add qsi to default XDG compliant desktops
