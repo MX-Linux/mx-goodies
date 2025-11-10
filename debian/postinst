@@ -1,9 +1,9 @@
 #!/bin/sh -e
 
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-remove" ] ; then
-    #fix error in /etc/skel/.bashrc
+    #fix misconfiguration in /etc/skel/.bashrc if it exists
 	if [ -e "/etc/skel/.bashrc" ]; then
-		sed -i 's/\[ -z \$LESS \]/[ -z "\$LESS" ]/' /etc/skel/.bashrc
+		sed -i 's/^\[ -z \$LESS \]/[ -z "\$LESS" ]/' /etc/skel/.bashrc
 	fi
 
   #don't do anything if update-rc.d is not present
