@@ -5,6 +5,9 @@ main(){
 
 /usr/bin/xdg-user-dirs-update.real "$@"
 
+#fix .bashrc misconfiguration if it exists
+sed -i 's/\[ -z \$LESS \]/[ -z "\$LESS" ]/' .bashrc
+
 sleep 0.5
 
 ##populate Desktop Folder if it exist
