@@ -6,7 +6,9 @@ main(){
 /usr/bin/xdg-user-dirs-update.real "$@"
 
 #fix .bashrc misconfiguration if it exists
-sed -i 's/^\[ -z \$LESS \]/[ -z "\$LESS" ]/' .bashrc
+if [ -e "$HOME/.bashrc" ]; then
+	sed -i 's/^\[ -z \$LESS \]/[ -z "\$LESS" ]/' "$HOME/.bashrc"
+fi
 
 sleep 0.5
 
