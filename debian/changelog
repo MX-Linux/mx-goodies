@@ -1,3 +1,9 @@
+mx-goodies (26.01.02mx25) mx; urgency=medium
+
+  * adjust conflicts information
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Wed, 07 Jan 2026 18:42:24 -0500
+
 mx-goodies (26.01.01mx25) mx; urgency=medium
 
   * remove guess-hwclock (conflicts with mx-installer 26.1.2)
