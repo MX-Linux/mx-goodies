@@ -1,3 +1,9 @@
+mx-goodies (26.01.02mx25) mx; urgency=medium
+
+  * fix .bashrc LESS export
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 17 Jan 2026 17:01:18 -0500
+
 mx-goodies (26.01.01mx25) mx; urgency=medium
 
   * remove guess-hwclock (conflicts with mx-installer 26.1.2)
