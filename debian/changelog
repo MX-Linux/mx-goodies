@@ -1,3 +1,9 @@
+mx-goodies (26.11.1mx25) mx; urgency=medium
+
+  * exit fstrim-mx early if systemd is running and fstrim.timer unit is enabled 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Fri, 13 Nov 2026 21:19:00 -0500
+
 mx-goodies (26.03.01mx25) mx; urgency=medium
 
   * modifiy rpi respin files to match main line release
