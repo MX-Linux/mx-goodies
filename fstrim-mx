@@ -1,5 +1,5 @@
 #!/bin/bash
-#this script is applied to SSE drives for sustained long-term performance and wear-leveling
+#this script is applied to SSD drives for sustained long-term performance and wear-leveling
 
 LOG=/var/log/trim.log
 
