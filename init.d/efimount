@@ -23,6 +23,9 @@ PATH=/sbin:/bin:/usr/bin
 do_start () {
     [ -x /sys/firmware/efi   ] || return   # not an EFI system
     [ -d /run/systemd/system ] && return   # don't run in systemd
+    # no EFI runtime services (efi=noruntime, e.g. default on 32-bit UEFI; noefi):
+    # efivarfs can't be mounted, the attempt only prints an error
+    grep -qwE 'efi=noruntime|noefi' /proc/cmdline && return
     grep -sq ^efivarfs /proc/self/mounts && return  # nothing todo
     # check efifarfs already mounted by kernel
     if ls /sys/firmware/efi/efivars/* 1>/dev/null 2>&1 || \
